@@ -1,0 +1,173 @@
+{
+  "generated_at": "2025-07-26T17:01:56.177973",
+  "total_rules_applied": 23,
+  "confidence_threshold_used": 0.7,
+  "rules": [
+    {
+      "rule_id": "remove_exact_duplicates",
+      "description": "Removed 0 duplicate rows",
+      "confidence": 1.0,
+      "applied_to": "_all",
+      "records_affected": 0
+    },
+    {
+      "rule_id": "trim_whitespace",
+      "description": "Trimmed whitespace in 7 columns",
+      "confidence": 1.0,
+      "applied_to": "_text_fields",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "validate_ids",
+      "description": "Validation issues: None",
+      "confidence": 0.9,
+      "applied_to": "Transaction ID",
+      "records_affected": 0
+    },
+    {
+      "rule_id": "validate_ids",
+      "description": "Validation issues: 12550 duplicate values",
+      "confidence": 0.9,
+      "applied_to": "Customer ID",
+      "records_affected": 0
+    },
+    {
+      "rule_id": "standardize_categories",
+      "description": "Applied basic category standardization",
+      "confidence": 0.85,
+      "applied_to": "Category",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "handle_missing_numeric",
+      "description": "Filled 1213 missing values using median",
+      "confidence": 0.85,
+      "applied_to": "Item",
+      "records_affected": 1213
+    },
+    {
+      "rule_id": "handle_missing_numeric",
+      "description": "Filled 609 missing values using median",
+      "confidence": 0.85,
+      "applied_to": "Price Per Unit",
+      "records_affected": 609
+    },
+    {
+      "rule_id": "normalize_currency",
+      "description": "Normalized currency to 2 decimal places",
+      "confidence": 0.95,
+      "applied_to": "Price Per Unit",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "detect_numeric_outliers",
+      "description": "Detected 0 outliers using iqr method",
+      "confidence": 0.85,
+      "applied_to": "Price Per Unit",
+      "records_affected": 0,
+      "method": "iqr"
+    },
+    {
+      "rule_id": "handle_missing_numeric",
+      "description": "Filled 604 missing values using median",
+      "confidence": 0.85,
+      "applied_to": "Quantity",
+      "records_affected": 604
+    },
+    {
+      "rule_id": "normalize_quantities",
+      "description": "Converted to positive integers",
+      "confidence": 0.95,
+      "applied_to": "Quantity",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "detect_numeric_outliers",
+      "description": "Detected 0 outliers using iqr method",
+      "confidence": 0.85,
+      "applied_to": "Quantity",
+      "records_affected": 0,
+      "method": "iqr"
+    },
+    {
+      "rule_id": "handle_missing_numeric",
+      "description": "Filled 604 missing values using median",
+      "confidence": 0.85,
+      "applied_to": "Total Spent",
+      "records_affected": 604
+    },
+    {
+      "rule_id": "normalize_currency",
+      "description": "Normalized currency to 2 decimal places",
+      "confidence": 0.95,
+      "applied_to": "Total Spent",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "detect_numeric_outliers",
+      "description": "Detected 157 outliers using iqr method",
+      "confidence": 0.85,
+      "applied_to": "Total Spent",
+      "records_affected": 157,
+      "method": "iqr"
+    },
+    {
+      "rule_id": "normalize_currency",
+      "description": "Normalized currency to 2 decimal places",
+      "confidence": 0.95,
+      "applied_to": "Payment Method",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "standardize_addresses",
+      "description": "Applied address standardization and abbreviations",
+      "confidence": 0.88,
+      "applied_to": "Location",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "normalize_phone",
+      "description": "Normalized 0 phone numbers",
+      "confidence": 0.94,
+      "applied_to": "Transaction Date",
+      "records_affected": 0,
+      "pattern": "(\\d{3})[. -]?(\\d{3})[. -]?(\\d{4})",
+      "replacement": "+1-\\1-\\2-\\3"
+    },
+    {
+      "rule_id": "parse_dates",
+      "description": "Parsed dates to standard format",
+      "confidence": 0.95,
+      "applied_to": "Transaction Date",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "handle_missing_categorical",
+      "description": "Filled 4199 missing values using mode",
+      "confidence": 0.8,
+      "applied_to": "Discount Applied",
+      "records_affected": 4199
+    },
+    {
+      "rule_id": "standardize_boolean",
+      "description": "Standardized boolean values",
+      "confidence": 0.9,
+      "applied_to": "Discount Applied",
+      "records_affected": 12575
+    },
+    {
+      "rule_id": "validate_discount_range",
+      "description": "Validation issues: None",
+      "confidence": 0.95,
+      "applied_to": "Discount Applied",
+      "records_affected": 0
+    },
+    {
+      "rule_id": "validate_transaction_totals",
+      "description": "Fixed 1183 transaction total discrepancies",
+      "confidence": 0.98,
+      "applied_to": "_transaction_validation",
+      "records_affected": 1183
+    }
+  ]
+}

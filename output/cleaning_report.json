@@ -1,0 +1,356 @@
+{
+  "summary": {
+    "operations_performed": 23,
+    "errors_encountered": 2,
+    "total_records_affected": 121744,
+    "operations_by_type": {
+      "remove_duplicates": {
+        "count": 1,
+        "total_records_affected": 0
+      },
+      "trim_whitespace": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "validation": {
+        "count": 3,
+        "total_records_affected": 0
+      },
+      "standardize_categories": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "fill_missing": {
+        "count": 5,
+        "total_records_affected": 7229
+      },
+      "normalize_currency": {
+        "count": 3,
+        "total_records_affected": 37725
+      },
+      "outlier_detection": {
+        "count": 3,
+        "total_records_affected": 157
+      },
+      "normalize_quantity": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "standardize_address": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "normalize_phone": {
+        "count": 1,
+        "total_records_affected": 0
+      },
+      "parse_dates": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "standardize_boolean": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "validate_totals": {
+        "count": 1,
+        "total_records_affected": 1183
+      }
+    },
+    "transformation_stats": {
+      "final_shape": [
+        12575,
+        11
+      ],
+      "final_nulls": 12575,
+      "final_duplicates": 0,
+      "final_memory_mb": 1.0375862121582031,
+      "improvements": {
+        "nulls_fixed": -5346,
+        "duplicates_removed": 0,
+        "rows_removed": 0
+      }
+    },
+    "error_summary": [
+      {
+        "rule_id": "standardize_categories",
+        "field": "Payment Method",
+        "error": "Standardization failed: invalid series dtype: expected `String`, got `f64`"
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "field": "Discount Applied",
+        "error": "Missing value handling failed: could not determine supertype of: [bool, dyn int]"
+      }
+    ]
+  },
+  "detailed_log": [
+    {
+      "timestamp": "2025-07-26T17:01:54.014631",
+      "rule_id": "remove_exact_duplicates",
+      "field": "_all",
+      "operation": "remove_duplicates",
+      "result": "Removed 0 duplicate rows",
+      "confidence": 1.0,
+      "records_affected": 0,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.025662",
+      "rule_id": "trim_whitespace",
+      "field": "_text_fields",
+      "operation": "trim_whitespace",
+      "result": "Trimmed whitespace in 7 columns",
+      "confidence": 1.0,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.030182",
+      "rule_id": "validate_ids",
+      "field": "Transaction ID",
+      "operation": "validation",
+      "result": "Validation issues: None",
+      "confidence": 0.9,
+      "records_affected": 0,
+      "status": "success",
+      "validation_issues": []
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.031653",
+      "rule_id": "validate_ids",
+      "field": "Customer ID",
+      "operation": "validation",
+      "result": "Validation issues: 12550 duplicate values",
+      "confidence": 0.9,
+      "records_affected": 0,
+      "status": "success",
+      "validation_issues": [
+        "12550 duplicate values"
+      ]
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.037670",
+      "rule_id": "standardize_categories",
+      "field": "Category",
+      "operation": "standardize_categories",
+      "result": "Applied basic category standardization",
+      "confidence": 0.85,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.040667",
+      "rule_id": "handle_missing_numeric",
+      "field": "Item",
+      "operation": "fill_missing",
+      "result": "Filled 1213 missing values using median",
+      "confidence": 0.85,
+      "records_affected": 1213,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.043070",
+      "rule_id": "handle_missing_numeric",
+      "field": "Price Per Unit",
+      "operation": "fill_missing",
+      "result": "Filled 609 missing values using median",
+      "confidence": 0.85,
+      "records_affected": 609,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.044062",
+      "rule_id": "normalize_currency",
+      "field": "Price Per Unit",
+      "operation": "normalize_currency",
+      "result": "Normalized currency to 2 decimal places",
+      "confidence": 0.95,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.045067",
+      "rule_id": "detect_numeric_outliers",
+      "field": "Price Per Unit",
+      "operation": "outlier_detection",
+      "result": "Detected 0 outliers using iqr method",
+      "confidence": 0.85,
+      "records_affected": 0,
+      "status": "success",
+      "outlier_info": {
+        "method": "iqr",
+        "count": 0,
+        "action": "flag"
+      }
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.047067",
+      "rule_id": "handle_missing_numeric",
+      "field": "Quantity",
+      "operation": "fill_missing",
+      "result": "Filled 604 missing values using median",
+      "confidence": 0.85,
+      "records_affected": 604,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.049207",
+      "rule_id": "normalize_quantities",
+      "field": "Quantity",
+      "operation": "normalize_quantity",
+      "result": "Converted to positive integers",
+      "confidence": 0.95,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.051213",
+      "rule_id": "detect_numeric_outliers",
+      "field": "Quantity",
+      "operation": "outlier_detection",
+      "result": "Detected 0 outliers using iqr method",
+      "confidence": 0.85,
+      "records_affected": 0,
+      "status": "success",
+      "outlier_info": {
+        "method": "iqr",
+        "count": 0,
+        "action": "flag"
+      }
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.053350",
+      "rule_id": "handle_missing_numeric",
+      "field": "Total Spent",
+      "operation": "fill_missing",
+      "result": "Filled 604 missing values using median",
+      "confidence": 0.85,
+      "records_affected": 604,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.053350",
+      "rule_id": "normalize_currency",
+      "field": "Total Spent",
+      "operation": "normalize_currency",
+      "result": "Normalized currency to 2 decimal places",
+      "confidence": 0.95,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.053350",
+      "rule_id": "detect_numeric_outliers",
+      "field": "Total Spent",
+      "operation": "outlier_detection",
+      "result": "Detected 157 outliers using iqr method",
+      "confidence": 0.85,
+      "records_affected": 157,
+      "status": "success",
+      "outlier_info": {
+        "method": "iqr",
+        "count": 157,
+        "action": "flag"
+      }
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.060298",
+      "rule_id": "normalize_currency",
+      "field": "Payment Method",
+      "operation": "normalize_currency",
+      "result": "Normalized currency to 2 decimal places",
+      "confidence": 0.95,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:54.070324",
+      "rule_id": "standardize_addresses",
+      "field": "Location",
+      "operation": "standardize_address",
+      "result": "Applied address standardization and abbreviations",
+      "confidence": 0.88,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:55.881759",
+      "rule_id": "normalize_phone",
+      "field": "Transaction Date",
+      "operation": "normalize_phone",
+      "result": "Normalized 0 phone numbers",
+      "confidence": 0.94,
+      "records_affected": 0,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:55.888103",
+      "rule_id": "parse_dates",
+      "field": "Transaction Date",
+      "operation": "parse_dates",
+      "result": "Parsed dates to standard format",
+      "confidence": 0.95,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:55.896105",
+      "rule_id": "handle_missing_categorical",
+      "field": "Discount Applied",
+      "operation": "fill_missing",
+      "result": "Filled 4199 missing values using mode",
+      "confidence": 0.8,
+      "records_affected": 4199,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:55.969854",
+      "rule_id": "standardize_boolean",
+      "field": "Discount Applied",
+      "operation": "standardize_boolean",
+      "result": "Standardized boolean values",
+      "confidence": 0.9,
+      "records_affected": 12575,
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:55.969854",
+      "rule_id": "validate_discount_range",
+      "field": "Discount Applied",
+      "operation": "validation",
+      "result": "Validation issues: None",
+      "confidence": 0.95,
+      "records_affected": 0,
+      "status": "success",
+      "validation_issues": []
+    },
+    {
+      "timestamp": "2025-07-26T17:01:55.972830",
+      "rule_id": "validate_transaction_totals",
+      "field": "_transaction_validation",
+      "operation": "validate_totals",
+      "result": "Fixed 1183 transaction total discrepancies",
+      "confidence": 0.98,
+      "records_affected": 1183,
+      "status": "success"
+    }
+  ],
+  "error_log": [
+    {
+      "timestamp": "2025-07-26T17:01:54.060298",
+      "rule_id": "standardize_categories",
+      "field": "Payment Method",
+      "error": "Standardization failed: invalid series dtype: expected `String`, got `f64`",
+      "status": "error"
+    },
+    {
+      "timestamp": "2025-07-26T17:01:55.890105",
+      "rule_id": "handle_missing_numeric",
+      "field": "Discount Applied",
+      "error": "Missing value handling failed: could not determine supertype of: [bool, dyn int]",
+      "status": "error"
+    }
+  ],
+  "generated_at": "2025-07-26T17:01:55.993092"
+}

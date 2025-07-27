@@ -1,0 +1,1041 @@
+{
+  "matched_rules": {
+    "Transaction ID": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "validate_ids",
+        "rule_type": "validation",
+        "field_patterns": [
+          "id",
+          "customer_id",
+          "transaction_id",
+          "order_id"
+        ],
+        "data_types": [
+          "string",
+          "object",
+          "int",
+          "float"
+        ],
+        "description": "Validate ID formats and flag anomalies",
+        "confidence": 0.9,
+        "checks": [
+          "not_null",
+          "unique",
+          "format_consistency"
+        ],
+        "enabled": true,
+        "priority": 11
+      }
+    ],
+    "Customer ID": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "validate_ids",
+        "rule_type": "validation",
+        "field_patterns": [
+          "id",
+          "customer_id",
+          "transaction_id",
+          "order_id"
+        ],
+        "data_types": [
+          "string",
+          "object",
+          "int",
+          "float"
+        ],
+        "description": "Validate ID formats and flag anomalies",
+        "confidence": 0.9,
+        "checks": [
+          "not_null",
+          "unique",
+          "format_consistency"
+        ],
+        "enabled": true,
+        "priority": 11
+      }
+    ],
+    "Category": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "standardize_categories",
+        "rule_type": "standardization",
+        "field_patterns": [
+          "category",
+          "type",
+          "class",
+          "method"
+        ],
+        "data_types": [
+          "string",
+          "object"
+        ],
+        "description": "Standardize categorical values using fuzzy matching",
+        "confidence": 0.85,
+        "similarity_threshold": 0.8,
+        "enabled": true,
+        "priority": 10
+      }
+    ],
+    "Item": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      }
+    ],
+    "Price Per Unit": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "normalize_currency",
+        "rule_type": "normalization",
+        "field_patterns": [
+          "price",
+          "amount",
+          "cost",
+          "total",
+          "spent",
+          "payment"
+        ],
+        "data_types": [
+          "float",
+          "int",
+          "string",
+          "object"
+        ],
+        "description": "Normalize currency values to standard decimal format",
+        "confidence": 0.95,
+        "decimal_places": 2,
+        "remove_symbols": true,
+        "enabled": true,
+        "priority": 9
+      },
+      {
+        "rule_id": "detect_numeric_outliers",
+        "rule_type": "outlier_detection",
+        "field_patterns": [
+          "price",
+          "amount",
+          "total",
+          "quantity",
+          "count"
+        ],
+        "data_types": [
+          "int",
+          "float"
+        ],
+        "description": "Detect outliers using IQR method",
+        "confidence": 0.85,
+        "method": "iqr",
+        "threshold": 1.5,
+        "action": "flag",
+        "enabled": true,
+        "priority": 14
+      }
+    ],
+    "Quantity": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "normalize_quantities",
+        "rule_type": "normalization",
+        "field_patterns": [
+          "quantity",
+          "qty",
+          "count",
+          "number"
+        ],
+        "data_types": [
+          "int",
+          "float",
+          "string",
+          "object"
+        ],
+        "description": "Ensure quantities are positive integers",
+        "confidence": 0.95,
+        "transformation": "positive_integer",
+        "enabled": true,
+        "priority": 12
+      },
+      {
+        "rule_id": "detect_numeric_outliers",
+        "rule_type": "outlier_detection",
+        "field_patterns": [
+          "price",
+          "amount",
+          "total",
+          "quantity",
+          "count"
+        ],
+        "data_types": [
+          "int",
+          "float"
+        ],
+        "description": "Detect outliers using IQR method",
+        "confidence": 0.85,
+        "method": "iqr",
+        "threshold": 1.5,
+        "action": "flag",
+        "enabled": true,
+        "priority": 14
+      }
+    ],
+    "Total Spent": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "normalize_currency",
+        "rule_type": "normalization",
+        "field_patterns": [
+          "price",
+          "amount",
+          "cost",
+          "total",
+          "spent",
+          "payment"
+        ],
+        "data_types": [
+          "float",
+          "int",
+          "string",
+          "object"
+        ],
+        "description": "Normalize currency values to standard decimal format",
+        "confidence": 0.95,
+        "decimal_places": 2,
+        "remove_symbols": true,
+        "enabled": true,
+        "priority": 9
+      },
+      {
+        "rule_id": "detect_numeric_outliers",
+        "rule_type": "outlier_detection",
+        "field_patterns": [
+          "price",
+          "amount",
+          "total",
+          "quantity",
+          "count"
+        ],
+        "data_types": [
+          "int",
+          "float"
+        ],
+        "description": "Detect outliers using IQR method",
+        "confidence": 0.85,
+        "method": "iqr",
+        "threshold": 1.5,
+        "action": "flag",
+        "enabled": true,
+        "priority": 14
+      }
+    ],
+    "Payment Method": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "normalize_currency",
+        "rule_type": "normalization",
+        "field_patterns": [
+          "price",
+          "amount",
+          "cost",
+          "total",
+          "spent",
+          "payment"
+        ],
+        "data_types": [
+          "float",
+          "int",
+          "string",
+          "object"
+        ],
+        "description": "Normalize currency values to standard decimal format",
+        "confidence": 0.95,
+        "decimal_places": 2,
+        "remove_symbols": true,
+        "enabled": true,
+        "priority": 9
+      },
+      {
+        "rule_id": "standardize_categories",
+        "rule_type": "standardization",
+        "field_patterns": [
+          "category",
+          "type",
+          "class",
+          "method"
+        ],
+        "data_types": [
+          "string",
+          "object"
+        ],
+        "description": "Standardize categorical values using fuzzy matching",
+        "confidence": 0.85,
+        "similarity_threshold": 0.8,
+        "enabled": true,
+        "priority": 10
+      }
+    ],
+    "Location": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "standardize_addresses",
+        "rule_type": "standardization",
+        "field_patterns": [
+          "address",
+          "street",
+          "location"
+        ],
+        "data_types": [
+          "string",
+          "object"
+        ],
+        "description": "Standardize addresses and common abbreviations",
+        "confidence": 0.88,
+        "transformations": {
+          "case": "title",
+          "abbreviations": {
+            "Street": "St",
+            "Avenue": "Ave",
+            "Road": "Rd",
+            "Boulevard": "Blvd"
+          }
+        },
+        "enabled": true,
+        "priority": 7
+      }
+    ],
+    "Transaction Date": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "normalize_phone",
+        "rule_type": "normalization",
+        "field_patterns": [
+          "phone",
+          "contact",
+          "mobile",
+          "tel"
+        ],
+        "data_types": [
+          "string",
+          "object"
+        ],
+        "description": "Normalize phone numbers to +1-XXX-XXX-XXXX format",
+        "confidence": 0.94,
+        "pattern": "(\\d{3})[. -]?(\\d{3})[. -]?(\\d{4})",
+        "replacement": "+1-$1-$2-$3",
+        "enabled": true,
+        "priority": 5
+      },
+      {
+        "rule_id": "parse_dates",
+        "rule_type": "standardization",
+        "field_patterns": [
+          "date",
+          "created",
+          "updated",
+          "timestamp",
+          "time"
+        ],
+        "data_types": [
+          "string",
+          "object",
+          "datetime"
+        ],
+        "description": "Standardize dates to YYYY-MM-DD format",
+        "confidence": 0.95,
+        "target_format": "%Y-%m-%d",
+        "enabled": true,
+        "priority": 8
+      }
+    ],
+    "Discount Applied": [
+      {
+        "rule_id": "remove_exact_duplicates",
+        "rule_type": "deduplication",
+        "description": "Remove exact duplicate rows across all columns",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 1
+      },
+      {
+        "rule_id": "trim_whitespace",
+        "rule_type": "standardization",
+        "description": "Remove leading/trailing whitespace from all text fields",
+        "confidence": 1.0,
+        "enabled": true,
+        "priority": 2
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "rule_type": "missing_value",
+        "description": "Fill missing numeric values with median",
+        "confidence": 0.85,
+        "strategy": "median",
+        "enabled": true,
+        "priority": 3
+      },
+      {
+        "rule_id": "handle_missing_categorical",
+        "rule_type": "missing_value",
+        "description": "Fill missing categorical values with mode or 'Unknown'",
+        "confidence": 0.8,
+        "strategy": "mode",
+        "enabled": true,
+        "priority": 4
+      },
+      {
+        "rule_id": "standardize_boolean",
+        "rule_type": "standardization",
+        "field_patterns": [
+          "discount",
+          "applied",
+          "active",
+          "enabled",
+          "flag"
+        ],
+        "data_types": [
+          "bool",
+          "string",
+          "object",
+          "int"
+        ],
+        "description": "Standardize boolean values from various representations",
+        "confidence": 0.9,
+        "mappings": {
+          "true": true,
+          "True": true,
+          "TRUE": true,
+          "1": true,
+          "yes": true,
+          "Yes": true,
+          "false": false,
+          "False": false,
+          "FALSE": false,
+          "0": false,
+          "no": false,
+          "No": false
+        },
+        "enabled": true,
+        "priority": 13
+      },
+      {
+        "rule_id": "validate_discount_range",
+        "rule_type": "validation",
+        "field": "Discount Applied",
+        "description": "Ensure discount values are valid boolean or percentage",
+        "confidence": 0.95,
+        "data_type_check": true,
+        "enabled": true,
+        "priority": 16
+      }
+    ],
+    "_dataset_rules": [
+      {
+        "rule_id": "validate_transaction_totals",
+        "rule_type": "validation",
+        "description": "Verify Total Spent = Price Per Unit * Quantity",
+        "confidence": 0.98,
+        "formula": "total_spent == price_per_unit * quantity",
+        "tolerance": 0.01,
+        "required_fields": [
+          "Total Spent",
+          "Price Per Unit",
+          "Quantity"
+        ],
+        "enabled": true,
+        "priority": 15
+      }
+    ]
+  },
+  "unmatched_fields": {
+    "Item": {
+      "data_type": "String",
+      "detected_field_type": "text",
+      "unique_count": 201,
+      "null_percentage": 9.646123260437376,
+      "analysis": {
+        "sample_values": [
+          "Item_10_PAT",
+          "Item_17_MILK",
+          "Item_12_BUT",
+          "Item_16_BEV",
+          "Item_6_FOOD",
+          "Item_1_FOOD",
+          "Item_16_FUR",
+          "Item_22_BUT",
+          "Item_3_BUT",
+          "Item_2_FOOD"
+        ],
+        "value_characteristics": {
+          "min_length": 10,
+          "max_length": 12,
+          "avg_length": 10.910579123393768,
+          "contains_numbers": true,
+          "contains_special_chars": true,
+          "all_uppercase": false,
+          "mixed_case": true
+        },
+        "recommendations": [
+          "Review special characters for consistency"
+        ]
+      },
+      "reason": "No field-specific rules matched"
+    }
+  },
+  "coverage_report": {
+    "coverage_statistics": {
+      "total_fields": 11,
+      "fields_with_specific_rules": 10,
+      "fields_with_only_universal_rules": 1,
+      "coverage_percentage": 90.9090909090909,
+      "unmatched_fields_count": 1
+    },
+    "rule_usage": {
+      "remove_exact_duplicates": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "deduplication",
+        "confidence": 1.0
+      },
+      "trim_whitespace": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "standardization",
+        "confidence": 1.0
+      },
+      "handle_missing_numeric": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "missing_value",
+        "confidence": 0.85
+      },
+      "handle_missing_categorical": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "missing_value",
+        "confidence": 0.8
+      },
+      "validate_ids": {
+        "count": 2,
+        "fields": [
+          "Transaction ID",
+          "Customer ID"
+        ],
+        "rule_type": "validation",
+        "confidence": 0.9
+      },
+      "standardize_categories": {
+        "count": 2,
+        "fields": [
+          "Category",
+          "Payment Method"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.85
+      },
+      "normalize_currency": {
+        "count": 3,
+        "fields": [
+          "Price Per Unit",
+          "Total Spent",
+          "Payment Method"
+        ],
+        "rule_type": "normalization",
+        "confidence": 0.95
+      },
+      "detect_numeric_outliers": {
+        "count": 3,
+        "fields": [
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent"
+        ],
+        "rule_type": "outlier_detection",
+        "confidence": 0.85
+      },
+      "normalize_quantities": {
+        "count": 1,
+        "fields": [
+          "Quantity"
+        ],
+        "rule_type": "normalization",
+        "confidence": 0.95
+      },
+      "standardize_addresses": {
+        "count": 1,
+        "fields": [
+          "Location"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.88
+      },
+      "normalize_phone": {
+        "count": 1,
+        "fields": [
+          "Transaction Date"
+        ],
+        "rule_type": "normalization",
+        "confidence": 0.94
+      },
+      "parse_dates": {
+        "count": 1,
+        "fields": [
+          "Transaction Date"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.95
+      },
+      "standardize_boolean": {
+        "count": 1,
+        "fields": [
+          "Discount Applied"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.9
+      },
+      "validate_discount_range": {
+        "count": 1,
+        "fields": [
+          "Discount Applied"
+        ],
+        "rule_type": "validation",
+        "confidence": 0.95
+      }
+    },
+    "field_coverage": {
+      "Transaction ID": 5,
+      "Customer ID": 5,
+      "Category": 5,
+      "Item": 4,
+      "Price Per Unit": 6,
+      "Quantity": 6,
+      "Total Spent": 6,
+      "Payment Method": 6,
+      "Location": 5,
+      "Transaction Date": 6,
+      "Discount Applied": 6
+    },
+    "unmatched_fields": {
+      "count": 1,
+      "fields": {
+        "Item": {
+          "data_type": "String",
+          "detected_field_type": "text",
+          "unique_count": 201,
+          "null_percentage": 9.646123260437376,
+          "analysis": {
+            "sample_values": [
+              "Item_10_PAT",
+              "Item_17_MILK",
+              "Item_12_BUT",
+              "Item_16_BEV",
+              "Item_6_FOOD",
+              "Item_1_FOOD",
+              "Item_16_FUR",
+              "Item_22_BUT",
+              "Item_3_BUT",
+              "Item_2_FOOD"
+            ],
+            "value_characteristics": {
+              "min_length": 10,
+              "max_length": 12,
+              "avg_length": 10.910579123393768,
+              "contains_numbers": true,
+              "contains_special_chars": true,
+              "all_uppercase": false,
+              "mixed_case": true
+            },
+            "recommendations": [
+              "Review special characters for consistency"
+            ]
+          },
+          "reason": "No field-specific rules matched"
+        }
+      },
+      "recommendations": []
+    },
+    "recommendations": [
+      "Good rule coverage achieved. Focus on fine-tuning existing rules.",
+      "1 fields lack specific rules. Review these for custom rule creation."
+    ]
+  },
+  "configuration_used": {
+    "total_universal_rules": 4,
+    "total_field_specific_rules": 10,
+    "total_dataset_specific_rules": 2
+  }
+}

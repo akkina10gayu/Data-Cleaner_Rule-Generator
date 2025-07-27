@@ -1,0 +1,962 @@
+{
+  "quality_metrics": {
+    "completeness": {
+      "original": {
+        "total_cells": 138325,
+        "null_cells": 7229,
+        "completeness_ratio": 0.947739020422917
+      },
+      "cleaned": {
+        "total_cells": 138325,
+        "null_cells": 12575,
+        "completeness_ratio": 0.9090909090909091
+      },
+      "improvement": {
+        "nulls_fixed": -5346,
+        "improvement_ratio": 0.038648111332007955
+      },
+      "by_column": {
+        "Transaction ID": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Quantity": {
+          "original_nulls": 604,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Payment Method": {
+          "original_nulls": 0,
+          "cleaned_nulls": 12575,
+          "null_percentage": 100.0
+        },
+        "Category": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Transaction Date": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Discount Applied": {
+          "original_nulls": 4199,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Total Spent": {
+          "original_nulls": 604,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Customer ID": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Price Per Unit": {
+          "original_nulls": 609,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Location": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Item": {
+          "original_nulls": 1213,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        }
+      }
+    },
+    "consistency": {
+      "overall_score": 0.9040000000000001,
+      "issues_found": 1,
+      "issues": [
+        {
+          "column": "Location",
+          "issue": "case_inconsistency",
+          "score": 0.59,
+          "patterns": {
+            "title": 59,
+            "upper": 0,
+            "lower": 0,
+            "mixed": 41
+          }
+        }
+      ],
+      "columns_analyzed": 5
+    },
+    "validity": {
+      "overall_score": 1.0,
+      "by_column": {
+        "Transaction ID": {
+          "column": "Transaction ID",
+          "checks_performed": [
+            {
+              "check": "excessive_length",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            },
+            {
+              "check": "unusual_patterns",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Customer ID": {
+          "column": "Customer ID",
+          "checks_performed": [
+            {
+              "check": "excessive_length",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            },
+            {
+              "check": "unusual_patterns",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Category": {
+          "column": "Category",
+          "checks_performed": [
+            {
+              "check": "excessive_length",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            },
+            {
+              "check": "unusual_patterns",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Item": {
+          "column": "Item",
+          "checks_performed": [
+            {
+              "check": "excessive_length",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            },
+            {
+              "check": "unusual_patterns",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Price Per Unit": {
+          "column": "Price Per Unit",
+          "checks_performed": [
+            {
+              "check": "extreme_values",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Quantity": {
+          "column": "Quantity",
+          "checks_performed": [
+            {
+              "check": "extreme_values",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Total Spent": {
+          "column": "Total Spent",
+          "checks_performed": [
+            {
+              "check": "extreme_values",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Payment Method": {
+          "column": "Payment Method",
+          "checks_performed": []
+        },
+        "Location": {
+          "column": "Location",
+          "checks_performed": [
+            {
+              "check": "excessive_length",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            },
+            {
+              "check": "unusual_patterns",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
+        },
+        "Transaction Date": {
+          "column": "Transaction Date",
+          "checks_performed": []
+        },
+        "Discount Applied": {
+          "column": "Discount Applied",
+          "checks_performed": []
+        }
+      },
+      "columns_with_issues": 0
+    },
+    "uniqueness": {
+      "original": {
+        "total_rows": 12575,
+        "unique_rows": 12575,
+        "duplicate_rows": 0,
+        "uniqueness_ratio": 1.0
+      },
+      "cleaned": {
+        "total_rows": 12575,
+        "unique_rows": 12575,
+        "duplicate_rows": 0,
+        "uniqueness_ratio": 1.0
+      },
+      "improvement": {
+        "duplicates_removed": 0,
+        "rows_removed": 0
+      }
+    },
+    "accuracy": {
+      "estimated_accuracy": 0.95,
+      "cells_processed": 138325,
+      "method": "estimated_based_on_transformations",
+      "note": "Accuracy calculation would require ground truth data in production"
+    },
+    "timeliness": {
+      "processing_timestamp": "2025-07-26T17:01:56.023436",
+      "data_freshness": "current",
+      "note": "Timeliness assessment would require data source timestamps",
+      "date_analysis": {
+        "Transaction Date": {
+          "min_date": "2022-01-01",
+          "max_date": "2025-01-18",
+          "date_range": "1113 days, 0:00:00"
+        }
+      }
+    }
+  },
+  "anomalies_detected": {
+    "statistical_outliers": {
+      "Total Spent": {
+        "method": "iqr",
+        "count": 56,
+        "percentage": 0.4453280318091451,
+        "bounds": {
+          "lower": -150.5,
+          "upper": 397.5
+        },
+        "sample_outliers": [
+          410.0,
+          410.0,
+          410.0,
+          410.0,
+          410.0
+        ],
+        "alternative_methods": [
+          "z_score (assumes normal distribution)",
+          "modified_z_score (uses MAD, more robust)",
+          "isolation_forest (for multivariate outliers)"
+        ]
+      }
+    },
+    "pattern_anomalies": {
+      "Category": {
+        "length_anomalies": {
+          "count": 20,
+          "samples": [
+            "Computers And Electric Accessories",
+            "Computers And Electric Accessories",
+            "Computers And Electric Accessories"
+          ],
+          "mean_length": 13.08,
+          "std_length": 9.441588849340985
+        },
+        "pattern_anomalies": {
+          "count": 0,
+          "samples": [],
+          "mean_digit_ratio": 0.0
+        },
+        "total_anomalies": 20,
+        "alternative_methods": [
+          "edit_distance_clustering (group similar patterns)",
+          "ngram_analysis (detect common subpatterns)",
+          "regex_pattern_mining (discover format rules)"
+        ]
+      },
+      "Item": {
+        "length_anomalies": {
+          "count": 17,
+          "samples": [
+            "Unknown",
+            "Unknown",
+            "Unknown"
+          ],
+          "mean_length": 10.715,
+          "std_length": 1.2859918351218254
+        },
+        "pattern_anomalies": {
+          "count": 0,
+          "samples": [],
+          "mean_digit_ratio": 0.14183333333333337
+        },
+        "total_anomalies": 17,
+        "alternative_methods": [
+          "edit_distance_clustering (group similar patterns)",
+          "ngram_analysis (detect common subpatterns)",
+          "regex_pattern_mining (discover format rules)"
+        ]
+      }
+    },
+    "value_anomalies": {
+      "Customer ID": {
+        "anomalies": [
+          {
+            "type": "low_uniqueness",
+            "value": 0.0019880715705765406,
+            "unique_count": 25,
+            "total_count": 12575,
+            "severity": "medium"
+          }
+        ],
+        "count": 1,
+        "alternative_methods": [
+          "frequency_based_detection (identify rare value patterns)",
+          "domain_specific_validation (business rule validation)"
+        ]
+      },
+      "Category": {
+        "anomalies": [
+          {
+            "type": "low_uniqueness",
+            "value": 0.000636182902584493,
+            "unique_count": 8,
+            "total_count": 12575,
+            "severity": "medium"
+          }
+        ],
+        "count": 1,
+        "alternative_methods": [
+          "frequency_based_detection (identify rare value patterns)",
+          "domain_specific_validation (business rule validation)"
+        ]
+      },
+      "Price Per Unit": {
+        "anomalies": [
+          {
+            "type": "low_uniqueness",
+            "value": 0.0019880715705765406,
+            "unique_count": 25,
+            "total_count": 12575,
+            "severity": "medium"
+          }
+        ],
+        "count": 1,
+        "alternative_methods": [
+          "frequency_based_detection (identify rare value patterns)",
+          "domain_specific_validation (business rule validation)"
+        ]
+      },
+      "Quantity": {
+        "anomalies": [
+          {
+            "type": "low_uniqueness",
+            "value": 0.0007952286282306163,
+            "unique_count": 10,
+            "total_count": 12575,
+            "severity": "medium"
+          }
+        ],
+        "count": 1,
+        "alternative_methods": [
+          "frequency_based_detection (identify rare value patterns)",
+          "domain_specific_validation (business rule validation)"
+        ]
+      },
+      "Payment Method": {
+        "anomalies": [
+          {
+            "type": "high_null_percentage",
+            "value": 100.0,
+            "threshold": 50,
+            "severity": "high"
+          },
+          {
+            "type": "low_uniqueness",
+            "value": 7.952286282306163e-05,
+            "unique_count": 1,
+            "total_count": 12575,
+            "severity": "medium"
+          },
+          {
+            "type": "single_value_dominance",
+            "value": 1.0,
+            "dominant_value": null,
+            "severity": "medium"
+          }
+        ],
+        "count": 3,
+        "alternative_methods": [
+          "frequency_based_detection (identify rare value patterns)",
+          "domain_specific_validation (business rule validation)"
+        ]
+      },
+      "Location": {
+        "anomalies": [
+          {
+            "type": "low_uniqueness",
+            "value": 0.00015904572564612326,
+            "unique_count": 2,
+            "total_count": 12575,
+            "severity": "medium"
+          }
+        ],
+        "count": 1,
+        "alternative_methods": [
+          "frequency_based_detection (identify rare value patterns)",
+          "domain_specific_validation (business rule validation)"
+        ]
+      }
+    },
+    "summary": {
+      "total_anomalies": 9,
+      "affected_columns": [
+        {
+          "column": "Customer ID",
+          "anomaly_types": [
+            "value_anomalies"
+          ]
+        },
+        {
+          "column": "Category",
+          "anomaly_types": [
+            "pattern_anomalies",
+            "value_anomalies"
+          ]
+        },
+        {
+          "column": "Item",
+          "anomaly_types": [
+            "pattern_anomalies"
+          ]
+        },
+        {
+          "column": "Price Per Unit",
+          "anomaly_types": [
+            "value_anomalies"
+          ]
+        },
+        {
+          "column": "Quantity",
+          "anomaly_types": [
+            "value_anomalies"
+          ]
+        },
+        {
+          "column": "Total Spent",
+          "anomaly_types": [
+            "statistical_outliers"
+          ]
+        },
+        {
+          "column": "Payment Method",
+          "anomaly_types": [
+            "value_anomalies"
+          ]
+        },
+        {
+          "column": "Location",
+          "anomaly_types": [
+            "value_anomalies"
+          ]
+        }
+      ]
+    }
+  },
+  "quality_scores": {
+    "completeness": 0.9090909090909091,
+    "consistency": 0.9040000000000001,
+    "validity": 1.0,
+    "uniqueness": 1.0,
+    "overall": 0.9487272727272726,
+    "weights_used": {
+      "completeness": 0.3,
+      "consistency": 0.25,
+      "validity": 0.25,
+      "uniqueness": 0.2
+    },
+    "interpretation": "Excellent"
+  },
+  "comparison_stats": {
+    "shape_comparison": {
+      "original": [
+        12575,
+        11
+      ],
+      "cleaned": [
+        12575,
+        11
+      ],
+      "rows_removed": 0,
+      "columns_changed": 0
+    },
+    "data_type_changes": {
+      "columns_with_changes": 3,
+      "changes": {
+        "Quantity": {
+          "from": "Float64",
+          "to": "Int64",
+          "change_type": "float_to_integer"
+        },
+        "Payment Method": {
+          "from": "String",
+          "to": "Float64",
+          "change_type": "other"
+        },
+        "Transaction Date": {
+          "from": "String",
+          "to": "Date",
+          "change_type": "other"
+        }
+      }
+    },
+    "memory_usage": {
+      "original_mb": 1.1220464706420898,
+      "cleaned_mb": 1.0375862121582031,
+      "reduction_mb": 0.08446025848388672
+    },
+    "null_comparison": {
+      "Transaction ID": {
+        "original_nulls": 0,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 0,
+        "improvement_ratio": 0
+      },
+      "Customer ID": {
+        "original_nulls": 0,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 0,
+        "improvement_ratio": 0
+      },
+      "Category": {
+        "original_nulls": 0,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 0,
+        "improvement_ratio": 0
+      },
+      "Item": {
+        "original_nulls": 1213,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 1213,
+        "improvement_ratio": 1.0
+      },
+      "Price Per Unit": {
+        "original_nulls": 609,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 609,
+        "improvement_ratio": 1.0
+      },
+      "Quantity": {
+        "original_nulls": 604,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 604,
+        "improvement_ratio": 1.0
+      },
+      "Total Spent": {
+        "original_nulls": 604,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 604,
+        "improvement_ratio": 1.0
+      },
+      "Payment Method": {
+        "original_nulls": 0,
+        "cleaned_nulls": 12575,
+        "nulls_fixed": -12575,
+        "improvement_ratio": 0
+      },
+      "Location": {
+        "original_nulls": 0,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 0,
+        "improvement_ratio": 0
+      },
+      "Transaction Date": {
+        "original_nulls": 0,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 0,
+        "improvement_ratio": 0
+      },
+      "Discount Applied": {
+        "original_nulls": 4199,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 4199,
+        "improvement_ratio": 1.0
+      }
+    }
+  },
+  "alerts": [
+    {
+      "type": "completeness_warning",
+      "severity": "medium",
+      "message": "Data completeness below threshold: 90.91%",
+      "timestamp": "2025-07-26T17:01:56.050116",
+      "metric": "completeness",
+      "value": 0.9090909090909091,
+      "threshold": 0.95
+    },
+    {
+      "type": "anomaly_detection",
+      "severity": "medium",
+      "message": "Detected 9 anomalies across 8 columns",
+      "timestamp": "2025-07-26T17:01:56.050116",
+      "metric": "anomalies",
+      "value": 9,
+      "affected_columns": [
+        "Customer ID",
+        "Category",
+        "Item",
+        "Price Per Unit",
+        "Quantity",
+        "Total Spent",
+        "Payment Method",
+        "Location"
+      ]
+    },
+    {
+      "type": "high_null_values",
+      "severity": "medium",
+      "message": "Columns with >20% missing values: Payment Method",
+      "timestamp": "2025-07-26T17:01:56.050116",
+      "metric": "missing_values",
+      "affected_columns": [
+        "Payment Method"
+      ]
+    }
+  ],
+  "cleaning_summary": {
+    "operations_performed": 23,
+    "errors_encountered": 2,
+    "total_records_affected": 121744,
+    "operations_by_type": {
+      "remove_duplicates": {
+        "count": 1,
+        "total_records_affected": 0
+      },
+      "trim_whitespace": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "validation": {
+        "count": 3,
+        "total_records_affected": 0
+      },
+      "standardize_categories": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "fill_missing": {
+        "count": 5,
+        "total_records_affected": 7229
+      },
+      "normalize_currency": {
+        "count": 3,
+        "total_records_affected": 37725
+      },
+      "outlier_detection": {
+        "count": 3,
+        "total_records_affected": 157
+      },
+      "normalize_quantity": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "standardize_address": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "normalize_phone": {
+        "count": 1,
+        "total_records_affected": 0
+      },
+      "parse_dates": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "standardize_boolean": {
+        "count": 1,
+        "total_records_affected": 12575
+      },
+      "validate_totals": {
+        "count": 1,
+        "total_records_affected": 1183
+      }
+    },
+    "transformation_stats": {
+      "final_shape": [
+        12575,
+        11
+      ],
+      "final_nulls": 12575,
+      "final_duplicates": 0,
+      "final_memory_mb": 1.0375862121582031,
+      "improvements": {
+        "nulls_fixed": -5346,
+        "duplicates_removed": 0,
+        "rows_removed": 0
+      }
+    },
+    "error_summary": [
+      {
+        "rule_id": "standardize_categories",
+        "field": "Payment Method",
+        "error": "Standardization failed: invalid series dtype: expected `String`, got `f64`"
+      },
+      {
+        "rule_id": "handle_missing_numeric",
+        "field": "Discount Applied",
+        "error": "Missing value handling failed: could not determine supertype of: [bool, dyn int]"
+      }
+    ]
+  },
+  "rule_coverage": {
+    "coverage_statistics": {
+      "total_fields": 11,
+      "fields_with_specific_rules": 10,
+      "fields_with_only_universal_rules": 1,
+      "coverage_percentage": 90.9090909090909,
+      "unmatched_fields_count": 1
+    },
+    "rule_usage": {
+      "remove_exact_duplicates": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "deduplication",
+        "confidence": 1.0
+      },
+      "trim_whitespace": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "standardization",
+        "confidence": 1.0
+      },
+      "handle_missing_numeric": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "missing_value",
+        "confidence": 0.85
+      },
+      "handle_missing_categorical": {
+        "count": 11,
+        "fields": [
+          "Transaction ID",
+          "Customer ID",
+          "Category",
+          "Item",
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent",
+          "Payment Method",
+          "Location",
+          "Transaction Date",
+          "Discount Applied"
+        ],
+        "rule_type": "missing_value",
+        "confidence": 0.8
+      },
+      "validate_ids": {
+        "count": 2,
+        "fields": [
+          "Transaction ID",
+          "Customer ID"
+        ],
+        "rule_type": "validation",
+        "confidence": 0.9
+      },
+      "standardize_categories": {
+        "count": 2,
+        "fields": [
+          "Category",
+          "Payment Method"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.85
+      },
+      "normalize_currency": {
+        "count": 3,
+        "fields": [
+          "Price Per Unit",
+          "Total Spent",
+          "Payment Method"
+        ],
+        "rule_type": "normalization",
+        "confidence": 0.95
+      },
+      "detect_numeric_outliers": {
+        "count": 3,
+        "fields": [
+          "Price Per Unit",
+          "Quantity",
+          "Total Spent"
+        ],
+        "rule_type": "outlier_detection",
+        "confidence": 0.85
+      },
+      "normalize_quantities": {
+        "count": 1,
+        "fields": [
+          "Quantity"
+        ],
+        "rule_type": "normalization",
+        "confidence": 0.95
+      },
+      "standardize_addresses": {
+        "count": 1,
+        "fields": [
+          "Location"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.88
+      },
+      "normalize_phone": {
+        "count": 1,
+        "fields": [
+          "Transaction Date"
+        ],
+        "rule_type": "normalization",
+        "confidence": 0.94
+      },
+      "parse_dates": {
+        "count": 1,
+        "fields": [
+          "Transaction Date"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.95
+      },
+      "standardize_boolean": {
+        "count": 1,
+        "fields": [
+          "Discount Applied"
+        ],
+        "rule_type": "standardization",
+        "confidence": 0.9
+      },
+      "validate_discount_range": {
+        "count": 1,
+        "fields": [
+          "Discount Applied"
+        ],
+        "rule_type": "validation",
+        "confidence": 0.95
+      }
+    },
+    "field_coverage": {
+      "Transaction ID": 5,
+      "Customer ID": 5,
+      "Category": 5,
+      "Item": 4,
+      "Price Per Unit": 6,
+      "Quantity": 6,
+      "Total Spent": 6,
+      "Payment Method": 6,
+      "Location": 5,
+      "Transaction Date": 6,
+      "Discount Applied": 6
+    },
+    "unmatched_fields": {
+      "count": 1,
+      "fields": {
+        "Item": {
+          "data_type": "String",
+          "detected_field_type": "text",
+          "unique_count": 201,
+          "null_percentage": 9.646123260437376,
+          "analysis": {
+            "sample_values": [
+              "Item_10_PAT",
+              "Item_17_MILK",
+              "Item_12_BUT",
+              "Item_16_BEV",
+              "Item_6_FOOD",
+              "Item_1_FOOD",
+              "Item_16_FUR",
+              "Item_22_BUT",
+              "Item_3_BUT",
+              "Item_2_FOOD"
+            ],
+            "value_characteristics": {
+              "min_length": 10,
+              "max_length": 12,
+              "avg_length": 10.910579123393768,
+              "contains_numbers": true,
+              "contains_special_chars": true,
+              "all_uppercase": false,
+              "mixed_case": true
+            },
+            "recommendations": [
+              "Review special characters for consistency"
+            ]
+          },
+          "reason": "No field-specific rules matched"
+        }
+      },
+      "recommendations": []
+    },
+    "recommendations": [
+      "Good rule coverage achieved. Focus on fine-tuning existing rules.",
+      "1 fields lack specific rules. Review these for custom rule creation."
+    ]
+  },
+  "monitoring_timestamp": "2025-07-26T17:01:56.050116"
+}

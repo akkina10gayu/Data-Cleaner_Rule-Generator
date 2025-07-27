@@ -1,0 +1,68 @@
+2025-07-26 16:05:52 - utils.logger - INFO - logger.py:72 - Logging configured - Level: INFO
+2025-07-26 16:05:52 - utils.logger - INFO - logger.py:74 - Log file: logs/pipeline_20250726_160552.log
+2025-07-26 16:05:52 - src.rule_engine - INFO - rule_engine.py:39 - Loaded rules configuration from config/rules.json
+2025-07-26 16:05:52 - __main__ - INFO - main.py:50 - Pipeline initialized with confidence threshold: 0.7
+2025-07-26 16:05:52 - __main__ - INFO - main.py:65 - ================================================================================
+2025-07-26 16:05:52 - __main__ - INFO - main.py:66 - STARTING DATA CLEANING PIPELINE
+2025-07-26 16:05:52 - __main__ - INFO - main.py:67 - ================================================================================
+2025-07-26 16:05:52 - __main__ - INFO - main.py:68 - Input file: data/retail_store_sales.csv
+2025-07-26 16:05:52 - __main__ - INFO - main.py:69 - Output directory: output
+2025-07-26 16:05:52 - __main__ - INFO - main.py:70 - Confidence threshold: 0.7
+2025-07-26 16:05:52 - utils.helpers - INFO - helpers.py:32 - Created output directories under output
+2025-07-26 16:05:52 - __main__ - INFO - main.py:77 - 
+📂 STEP 1: Loading and validating input data...
+2025-07-26 16:05:52 - __main__ - INFO - main.py:271 -    ✓ Successfully loaded 12,575 rows and 11 columns
+2025-07-26 16:05:52 - __main__ - INFO - main.py:272 -    ✓ Memory usage: 1.12 MB
+2025-07-26 16:05:52 - __main__ - INFO - main.py:273 -    ✓ Columns: Transaction ID, Customer ID, Category, Item, Price Per Unit, Quantity, Total Spent, Payment Method, Location, Transaction Date, Discount Applied
+2025-07-26 16:05:52 - __main__ - INFO - main.py:86 - 
+📊 STEP 2: Profiling dataset characteristics...
+2025-07-26 16:05:52 - src.data_profiler - INFO - data_profiler.py:43 - Starting dataset profiling for shape: (12575, 11)
+2025-07-26 16:05:52 - src.data_profiler - INFO - data_profiler.py:63 - Dataset profiling completed successfully
+2025-07-26 16:05:53 - src.data_profiler - INFO - data_profiler.py:498 - Profile report saved to output/data_profile.html
+2025-07-26 16:05:53 - src.data_profiler - INFO - data_profiler.py:792 - Profile results saved to output/data_profile.json
+2025-07-26 16:05:53 - __main__ - INFO - main.py:100 -    ✓ Profile completed in 1.04 seconds
+2025-07-26 16:05:53 - __main__ - INFO - main.py:101 -    ✓ Analyzed 11 columns
+2025-07-26 16:05:53 - __main__ - INFO - main.py:104 - 
+🎯 STEP 3: Matching cleaning rules to fields...
+2025-07-26 16:05:53 - src.rule_engine - INFO - rule_engine.py:56 - Starting rule matching analysis...
+2025-07-26 16:05:53 - src.rule_engine - WARNING - rule_engine.py:323 - Field 'Item' did not match any field-specific rules
+2025-07-26 16:05:53 - src.rule_engine - INFO - rule_engine.py:421 - Applied dataset rule: validate_transaction_totals
+2025-07-26 16:05:53 - src.rule_engine - INFO - rule_engine.py:428 - Applied dataset rule: validate_discount_range to field Discount Applied
+2025-07-26 16:05:53 - src.rule_engine - INFO - rule_engine.py:82 - Rule matching completed. Matched rules for 12 fields.
+2025-07-26 16:05:53 - src.rule_engine - INFO - rule_engine.py:607 - Rule analysis saved to output/rule_analysis.json
+2025-07-26 16:05:53 - __main__ - INFO - main.py:121 -    ✓ Rule matching completed in 0.01 seconds
+2025-07-26 16:05:53 - __main__ - INFO - main.py:122 -    ✓ Matched 61 rules across 11 fields
+2025-07-26 16:05:53 - __main__ - INFO - main.py:123 -    ✓ Field coverage: 90.9%
+2025-07-26 16:05:53 - __main__ - WARNING - main.py:128 -    ⚠️  1 fields did not match specific rules
+2025-07-26 16:05:53 - __main__ - WARNING - main.py:130 -       - Item
+2025-07-26 16:05:53 - __main__ - INFO - main.py:133 - 
+🧹 STEP 4: Applying cleaning transformations...
+2025-07-26 16:05:53 - src.data_cleaner - INFO - data_cleaner.py:43 - Starting data cleaning with confidence threshold: 0.7
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - ERROR - data_cleaner.py:764 - Cleaning error - Rule: standardize_categories, Field: Payment Method, Error: Standardization failed: invalid series dtype: expected `String`, got `f64`
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:53 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:54 - src.data_cleaner - WARNING - data_cleaner.py:432 - Unknown standardization rule: trim_whitespace
+2025-07-26 16:05:54 - src.data_cleaner - ERROR - data_cleaner.py:764 - Cleaning error - Rule: handle_missing_numeric, Field: Discount Applied, Error: Missing value handling failed: could not determine supertype of: [bool, dyn int]
+2025-07-26 16:05:54 - src.data_cleaner - INFO - data_cleaner.py:64 - Data cleaning completed. Applied 23 operations.
+2025-07-26 16:05:54 - src.data_cleaner - INFO - data_cleaner.py:821 - Cleaning report saved to output/cleaning_report.json
+2025-07-26 16:05:54 - __main__ - INFO - main.py:158 -    ✓ Cleaning completed in 0.69 seconds
+2025-07-26 16:05:54 - __main__ - INFO - main.py:159 -    ✓ Performed 23 operations
+2025-07-26 16:05:54 - __main__ - INFO - main.py:160 -    ✓ Affected 121744 records
+2025-07-26 16:05:54 - __main__ - WARNING - main.py:163 -    ⚠️  2 errors encountered
+2025-07-26 16:05:54 - __main__ - INFO - main.py:166 - 
+📈 STEP 5: Generating quality metrics and monitoring...
+2025-07-26 16:05:54 - src.monitoring - INFO - monitoring.py:49 - Starting comprehensive monitoring analysis...
+2025-07-26 16:05:54 - src.monitoring - INFO - monitoring.py:78 - Monitoring completed. Generated 3 alerts.
+2025-07-26 16:05:54 - __main__ - ERROR - main.py:248 - Pipeline execution failed: name 'os' is not defined
+Traceback (most recent call last):
+  File "C:\My Documents\Firstbase_Data Cleaning Project\Firstbase_AI Assessment\Data-Cleaner_Rule-Generator\main.py", line 180, in run_pipeline
+    monitoring_report_path = os.path.join(output_dir, "monitoring_report.json")
+NameError: name 'os' is not defined

@@ -1,0 +1,199 @@
+{
+  "universal_rules": [
+    {
+      "rule_id": "remove_exact_duplicates",
+      "rule_type": "deduplication",
+      "description": "Remove exact duplicate rows across all columns",
+      "confidence": 1.0,
+      "enabled": true,
+      "priority": 1
+    },
+    {
+      "rule_id": "trim_whitespace",
+      "rule_type": "standardization",
+      "description": "Remove leading/trailing whitespace from all text fields",
+      "confidence": 1.0,
+      "enabled": true,
+      "priority": 2
+    },
+    {
+      "rule_id": "handle_missing_numeric",
+      "rule_type": "missing_value",
+      "description": "Fill missing numeric values with median",
+      "confidence": 0.85,
+      "strategy": "median",
+      "enabled": true,
+      "priority": 3
+    },
+    {
+      "rule_id": "handle_missing_categorical",
+      "rule_type": "missing_value",
+      "description": "Fill missing categorical values with mode or 'Unknown'",
+      "confidence": 0.80,
+      "strategy": "mode",
+      "enabled": true,
+      "priority": 4
+    }
+  ],
+  "field_specific_rules": [
+    {
+      "rule_id": "normalize_phone",
+      "rule_type": "normalization",
+      "field_patterns": ["phone", "contact", "mobile", "tel"],
+      "data_types": ["string", "object"],
+      "description": "Normalize phone numbers to +1-XXX-XXX-XXXX format",
+      "confidence": 0.94,
+      "pattern": "(\\d{3})[. -]?(\\d{3})[. -]?(\\d{4})",
+      "replacement": "+1-$1-$2-$3",
+      "enabled": true,
+      "priority": 5
+    },
+    {
+      "rule_id": "standardize_names",
+      "rule_type": "standardization",
+      "field_patterns": ["name", "first_name", "last_name", "customer_name"],
+      "data_types": ["string", "object"],
+      "description": "Standardize names to Title Case and clean spacing",
+      "confidence": 0.92,
+      "transformation": "title_case",
+      "enabled": true,
+      "priority": 6
+    },
+    {
+      "rule_id": "standardize_addresses",
+      "rule_type": "standardization",
+      "field_patterns": ["address", "street", "location"],
+      "data_types": ["string", "object"],
+      "description": "Standardize addresses and common abbreviations",
+      "confidence": 0.88,
+      "transformations": {
+        "case": "title",
+        "abbreviations": {
+          "Street": "St",
+          "Avenue": "Ave", 
+          "Road": "Rd",
+          "Boulevard": "Blvd"
+        }
+      },
+      "enabled": true,
+      "priority": 7
+    },
+    {
+      "rule_id": "parse_dates",
+      "rule_type": "standardization",
+      "field_patterns": ["date", "created", "updated", "timestamp", "time"],
+      "data_types": ["string", "object", "datetime"],
+      "description": "Standardize dates to YYYY-MM-DD format",
+      "confidence": 0.95,
+      "target_format": "%Y-%m-%d",
+      "enabled": true,
+      "priority": 8
+    },
+    {
+      "rule_id": "normalize_currency",
+      "rule_type": "normalization",
+      "field_patterns": ["price", "amount", "cost", "total", "spent", "payment"],
+      "data_types": ["float", "int", "string", "object"],
+      "description": "Normalize currency values to standard decimal format",
+      "confidence": 0.95,
+      "decimal_places": 2,
+      "remove_symbols": true,
+      "enabled": true,
+      "priority": 9
+    },
+    {
+      "rule_id": "standardize_categories",
+      "rule_type": "standardization",
+      "field_patterns": ["category", "type", "class", "method"],
+      "data_types": ["string", "object"],
+      "description": "Standardize categorical values using fuzzy matching",
+      "confidence": 0.85,
+      "similarity_threshold": 0.8,
+      "enabled": true,
+      "priority": 10
+    },
+    {
+      "rule_id": "validate_ids",
+      "rule_type": "validation",
+      "field_patterns": ["id", "customer_id", "transaction_id", "order_id"],
+      "data_types": ["string", "object", "int", "float"],
+      "description": "Validate ID formats and flag anomalies",
+      "confidence": 0.90,
+      "checks": ["not_null", "unique", "format_consistency"],
+      "enabled": true,
+      "priority": 11
+    },
+    {
+      "rule_id": "normalize_quantities",
+      "rule_type": "normalization",
+      "field_patterns": ["quantity", "qty", "count", "number"],
+      "data_types": ["int", "float", "string", "object"],
+      "description": "Ensure quantities are positive integers",
+      "confidence": 0.95,
+      "transformation": "positive_integer",
+      "enabled": true,
+      "priority": 12
+    },
+    {
+      "rule_id": "standardize_boolean",
+      "rule_type": "standardization",
+      "field_patterns": ["discount", "applied", "active", "enabled", "flag"],
+      "data_types": ["bool", "string", "object", "int"],
+      "description": "Standardize boolean values from various representations",
+      "confidence": 0.90,
+      "mappings": {
+        "true": true, "True": true, "TRUE": true, "1": true, "yes": true, "Yes": true,
+        "false": false, "False": false, "FALSE": false, "0": false, "no": false, "No": false
+      },
+      "enabled": true,
+      "priority": 13
+    },
+    {
+      "rule_id": "detect_numeric_outliers",
+      "rule_type": "outlier_detection",
+      "field_patterns": ["price", "amount", "total", "quantity", "count"],
+      "data_types": ["int", "float"],
+      "description": "Detect outliers using IQR method",
+      "confidence": 0.85,
+      "method": "iqr",
+      "threshold": 1.5,
+      "action": "flag",
+      "enabled": true,
+      "priority": 14
+    }
+  ],
+  "dataset_specific_rules": [
+    {
+      "rule_id": "validate_transaction_totals",
+      "rule_type": "validation",
+      "description": "Verify Total Spent = Price Per Unit * Quantity",
+      "confidence": 0.98,
+      "formula": "total_spent == price_per_unit * quantity",
+      "tolerance": 0.01,
+      "required_fields": ["Total Spent", "Price Per Unit", "Quantity"],
+      "enabled": true,
+      "priority": 15
+    },
+    {
+      "rule_id": "validate_discount_range",
+      "rule_type": "validation",
+      "field": "Discount Applied",
+      "description": "Ensure discount values are valid boolean or percentage",
+      "confidence": 0.95,
+      "data_type_check": true,
+      "enabled": true,
+      "priority": 16
+    }
+  ],
+  "anomaly_detection_config": {
+    "outlier_methods": ["iqr", "zscore", "isolation_forest"],
+    "missing_value_threshold": 0.05,
+    "duplicate_threshold": 0.01,
+    "format_consistency_threshold": 0.8
+  },
+  "confidence_thresholds": {
+    "auto_apply": 0.9,
+    "review_required": 0.7,
+    "skip": 0.5
+  }
+}
