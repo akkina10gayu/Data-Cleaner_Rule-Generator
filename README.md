@@ -150,11 +150,18 @@ python main.py data.csv --confidence 0.6
 - **Value Anomalies**: High null rates, low uniqueness, single value dominance
 
 ### Alert System
-Automatically generates alerts for:
-- Quality scores below thresholds
-- High numbers of anomalies detected
-- Columns with excessive missing values
-- Processing errors or failures
+**Multi-Level Alert Framework:**
+- **Critical**: >30% missing data, calculation errors requiring immediate action
+- **High**: Quality scores <70%, validation failures affecting business logic
+- **Medium**: Moderate anomalies, format inconsistencies, performance issues
+- **Low**: Minor data quality observations, informational notices
+
+**Alert Delivery Options:**
+- Dashboard notifications (default)
+- Email alerts (configure SMTP in settings)
+- Slack/Teams webhooks for team notifications
+- Log-based alerts for monitoring systems (Prometheus, Grafana)
+- Custom webhook endpoints for enterprise integrations
 
 ## Configuration
 
@@ -220,28 +227,49 @@ Fields that don't match specific rules are:
 
 ### Deployment Patterns
 
-1. **Batch Processing**: Schedule regular runs via cron/Airflow
-2. **API Service**: Wrap in FastAPI for on-demand cleaning
-3. **Streaming**: Adapt for real-time data stream processing
-4. **Microservice**: Deploy as containerized service
+**Orchestration Options:**
+1. **Apache Airflow**: Schedule DAGs for regular data cleaning pipelines with dependency management
+2. **Kubernetes CronJobs**: Container-based scheduled execution with resource limits and auto-scaling
+3. **AWS Step Functions**: Serverless workflow orchestration with error handling and retries
+4. **Jenkins Pipeline**: CI/CD integration for automated testing and deployment
+
+**Service Deployment:**
+1. **Batch Processing**: Scheduled runs via cron/Airflow for large datasets (nightly ETL jobs)
+2. **API Service**: FastAPI wrapper for on-demand cleaning with authentication and rate limiting
+3. **Streaming**: Kafka/Kinesis integration for real-time data stream processing
+4. **Microservice**: Docker containerization with health checks and horizontal pod autoscaling
+
+**Simple Deployment Architecture:**
+```
+Data Sources → [Load Balancer] → Data Cleaning Service → Monitoring Dashboard
+     ↓                               ↓                         ↓
+Database/Files ← Cleaned Data ← Rule Engine + Profiler → Alerts/Notifications
+```
 
 ## Design Principles
 
-### About the Approach
+### Key Design Principles
 
-1. **Intelligence Over Hardcoding**: Rules are matched dynamically based on field characteristics rather than hardcoded field names
-2. **Confidence-Based Processing**: Different confidence levels allow for careful automated processing while flagging uncertain cases
-3. **Comprehensive Monitoring**: Production systems need observability - metrics, alerts, and dashboards provide this
-4. **Extensible Architecture**: Adding new rules or field types is straightforward without modifying core logic
-5. **Production Readiness**: Proper logging, error handling, and documentation make this suitable for real-world use
+1. **Dynamic Rule Matching**: Field detection based on patterns and data types, not hardcoded names
+2. **Confidence-Based Processing**: Configurable thresholds for automated vs manual review decisions
+3. **Comprehensive Monitoring**: Built-in dashboards, alerts, and quality metrics for production use
+4. **Extensible Architecture**: Easy to add custom rules without modifying core pipeline logic
 
 ### Edge Cases Handled
 
-- **Mixed Data Types**: Handles columns with mixed content types
-- **Missing Rule Matches**: Gracefully handles fields that don't match any specific rules
-- **Processing Failures**: Individual rule failures don't stop the entire pipeline
-- **Large Datasets**: Memory-efficient processing with configurable sampling
-- **Invalid Data**: Comprehensive validation and error reporting
+**Data Quality Edge Cases:**
+- **Mixed Data Types**: Auto-detects and converts mixed columns (e.g., "123" vs 123 in same field)
+- **Corrupt Data**: Skips unparseable rows, logs errors, continues processing remaining data
+- **Memory Constraints**: Processes data in chunks for datasets >1GB, configurable batch sizes
+- **Network Failures**: Implements retry logic for remote data sources with exponential backoff
+- **Partial Processing**: Saves intermediate results, supports resume from last checkpoint
+
+**System Edge Cases:**
+- **Missing Rule Matches**: Applies universal rules, flags unmatched fields for manual review
+- **Processing Failures**: Individual rule failures don't stop pipeline, comprehensive error logging
+- **Invalid Configuration**: Validates rules.json on startup, provides clear error messages
+- **Disk Space**: Monitors available space, compresses intermediate files, cleanup on completion
+- **Concurrent Access**: File locking prevents simultaneous runs on same dataset
 
 ```
 
@@ -261,11 +289,7 @@ python -m pytest utils/test_rules.py::TestDatasetSpecificRules -v
 
 ### Test Coverage
 
-The test suite covers:
-- Universal rules (duplicate removal, whitespace trimming, missing value handling)
-- Field-specific rules (phone normalization, currency formatting, boolean standardization)
-- Dataset-specific rules (transaction validation, discount validation)
-- Edge cases and error conditions
+Comprehensive unit tests for all rule categories and edge cases including data type conversions, error conditions, and validation failures.
 
 ## Troubleshooting
 
