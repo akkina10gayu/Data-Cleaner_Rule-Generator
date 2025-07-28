@@ -577,7 +577,7 @@ class RuleEngine:
         
         return recommendations
     
-    def save_rule_analysis(self, output_path: str = "output/rule_analysis.json") -> str:
+    def save_rule_analysis(self, output_path: str = "../output/rule_analysis.json") -> str:
         """
         Save complete rule analysis to JSON file.
         

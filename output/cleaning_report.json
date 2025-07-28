@@ -86,7 +86,7 @@
   },
   "detailed_log": [
     {
-      "timestamp": "2025-07-26T17:01:54.014631",
+      "timestamp": "2025-07-27T21:47:18.083050",
       "rule_id": "remove_exact_duplicates",
       "field": "_all",
       "operation": "remove_duplicates",
@@ -96,7 +96,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.025662",
+      "timestamp": "2025-07-27T21:47:18.086383",
       "rule_id": "trim_whitespace",
       "field": "_text_fields",
       "operation": "trim_whitespace",
@@ -106,7 +106,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.030182",
+      "timestamp": "2025-07-27T21:47:18.087386",
       "rule_id": "validate_ids",
       "field": "Transaction ID",
       "operation": "validation",
@@ -117,7 +117,7 @@
       "validation_issues": []
     },
     {
-      "timestamp": "2025-07-26T17:01:54.031653",
+      "timestamp": "2025-07-27T21:47:18.088387",
       "rule_id": "validate_ids",
       "field": "Customer ID",
       "operation": "validation",
@@ -130,7 +130,7 @@
       ]
     },
     {
-      "timestamp": "2025-07-26T17:01:54.037670",
+      "timestamp": "2025-07-27T21:47:18.091393",
       "rule_id": "standardize_categories",
       "field": "Category",
       "operation": "standardize_categories",
@@ -140,7 +140,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.040667",
+      "timestamp": "2025-07-27T21:47:18.092388",
       "rule_id": "handle_missing_numeric",
       "field": "Item",
       "operation": "fill_missing",
@@ -150,7 +150,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.043070",
+      "timestamp": "2025-07-27T21:47:18.093387",
       "rule_id": "handle_missing_numeric",
       "field": "Price Per Unit",
       "operation": "fill_missing",
@@ -160,7 +160,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.044062",
+      "timestamp": "2025-07-27T21:47:18.093387",
       "rule_id": "normalize_currency",
       "field": "Price Per Unit",
       "operation": "normalize_currency",
@@ -170,7 +170,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.045067",
+      "timestamp": "2025-07-27T21:47:18.094387",
       "rule_id": "detect_numeric_outliers",
       "field": "Price Per Unit",
       "operation": "outlier_detection",
@@ -185,7 +185,7 @@
       }
     },
     {
-      "timestamp": "2025-07-26T17:01:54.047067",
+      "timestamp": "2025-07-27T21:47:18.095384",
       "rule_id": "handle_missing_numeric",
       "field": "Quantity",
       "operation": "fill_missing",
@@ -195,7 +195,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.049207",
+      "timestamp": "2025-07-27T21:47:18.095384",
       "rule_id": "normalize_quantities",
       "field": "Quantity",
       "operation": "normalize_quantity",
@@ -205,7 +205,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.051213",
+      "timestamp": "2025-07-27T21:47:18.095905",
       "rule_id": "detect_numeric_outliers",
       "field": "Quantity",
       "operation": "outlier_detection",
@@ -220,7 +220,7 @@
       }
     },
     {
-      "timestamp": "2025-07-26T17:01:54.053350",
+      "timestamp": "2025-07-27T21:47:18.096413",
       "rule_id": "handle_missing_numeric",
       "field": "Total Spent",
       "operation": "fill_missing",
@@ -230,7 +230,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.053350",
+      "timestamp": "2025-07-27T21:47:18.096413",
       "rule_id": "normalize_currency",
       "field": "Total Spent",
       "operation": "normalize_currency",
@@ -240,7 +240,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.053350",
+      "timestamp": "2025-07-27T21:47:18.096413",
       "rule_id": "detect_numeric_outliers",
       "field": "Total Spent",
       "operation": "outlier_detection",
@@ -255,7 +255,7 @@
       }
     },
     {
-      "timestamp": "2025-07-26T17:01:54.060298",
+      "timestamp": "2025-07-27T21:47:18.098457",
       "rule_id": "normalize_currency",
       "field": "Payment Method",
       "operation": "normalize_currency",
@@ -265,7 +265,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:54.070324",
+      "timestamp": "2025-07-27T21:47:18.103869",
       "rule_id": "standardize_addresses",
       "field": "Location",
       "operation": "standardize_address",
@@ -275,7 +275,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:55.881759",
+      "timestamp": "2025-07-27T21:47:19.437747",
       "rule_id": "normalize_phone",
       "field": "Transaction Date",
       "operation": "normalize_phone",
@@ -285,7 +285,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:55.888103",
+      "timestamp": "2025-07-27T21:47:19.440758",
       "rule_id": "parse_dates",
       "field": "Transaction Date",
       "operation": "parse_dates",
@@ -295,7 +295,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:55.896105",
+      "timestamp": "2025-07-27T21:47:19.444758",
       "rule_id": "handle_missing_categorical",
       "field": "Discount Applied",
       "operation": "fill_missing",
@@ -305,7 +305,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:55.969854",
+      "timestamp": "2025-07-27T21:47:19.542145",
       "rule_id": "standardize_boolean",
       "field": "Discount Applied",
       "operation": "standardize_boolean",
@@ -315,7 +315,7 @@
       "status": "success"
     },
     {
-      "timestamp": "2025-07-26T17:01:55.969854",
+      "timestamp": "2025-07-27T21:47:19.542145",
       "rule_id": "validate_discount_range",
       "field": "Discount Applied",
       "operation": "validation",
@@ -326,7 +326,7 @@
       "validation_issues": []
     },
     {
-      "timestamp": "2025-07-26T17:01:55.972830",
+      "timestamp": "2025-07-27T21:47:19.543161",
       "rule_id": "validate_transaction_totals",
       "field": "_transaction_validation",
       "operation": "validate_totals",
@@ -338,19 +338,19 @@
   ],
   "error_log": [
     {
-      "timestamp": "2025-07-26T17:01:54.060298",
+      "timestamp": "2025-07-27T21:47:18.098457",
       "rule_id": "standardize_categories",
       "field": "Payment Method",
       "error": "Standardization failed: invalid series dtype: expected `String`, got `f64`",
       "status": "error"
     },
     {
-      "timestamp": "2025-07-26T17:01:55.890105",
+      "timestamp": "2025-07-27T21:47:19.442762",
       "rule_id": "handle_missing_numeric",
       "field": "Discount Applied",
       "error": "Missing value handling failed: could not determine supertype of: [bool, dyn int]",
       "status": "error"
     }
   ],
-  "generated_at": "2025-07-26T17:01:55.993092"
+  "generated_at": "2025-07-27T21:47:19.557876"
 }

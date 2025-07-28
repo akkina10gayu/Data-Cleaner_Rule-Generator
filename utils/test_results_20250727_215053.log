@@ -1,0 +1,66 @@
+Data Cleaner Unit Test Results
+Generated: 2025-07-27 21:50:53
+============================================================
+
+DETAILED TEST OUTPUT:
+test_handle_missing_categorical_mode (__main__.TestUniversalRules)
+Test handle_missing_categorical rule with mode strategy ... ok
+test_handle_missing_numeric_median (__main__.TestUniversalRules)
+Test handle_missing_numeric rule with median strategy ... ok
+test_remove_exact_duplicates (__main__.TestUniversalRules)
+Test remove_exact_duplicates rule ... ok
+test_trim_whitespace (__main__.TestUniversalRules)
+Test trim_whitespace rule ... ok
+test_detect_numeric_outliers_cap (__main__.TestFieldSpecificRules)
+Test detect_numeric_outliers rule with capping action ... ok
+test_detect_numeric_outliers_iqr (__main__.TestFieldSpecificRules)
+Test detect_numeric_outliers rule with IQR method ... ok
+test_normalize_currency (__main__.TestFieldSpecificRules)
+Test normalize_currency rule ... ok
+test_normalize_phone (__main__.TestFieldSpecificRules)
+Test normalize_phone rule ... ok
+test_normalize_quantities (__main__.TestFieldSpecificRules)
+Test normalize_quantities rule ... ok
+test_parse_dates (__main__.TestFieldSpecificRules)
+Test parse_dates rule ... ok
+test_standardize_addresses (__main__.TestFieldSpecificRules)
+Test standardize_addresses rule ... ok
+test_standardize_boolean (__main__.TestFieldSpecificRules)
+Test standardize_boolean rule ... ok
+test_standardize_categories (__main__.TestFieldSpecificRules)
+Test standardize_categories rule ... ok
+test_standardize_names (__main__.TestFieldSpecificRules)
+Test standardize_names rule ... ok
+test_validate_ids (__main__.TestFieldSpecificRules)
+Test validate_ids rule ... ok
+test_validate_transaction_totals (__main__.TestDatasetSpecificRules)
+Test validate_transaction_totals rule ... ok
+test_boolean_pattern_detection (__main__.TestRuleEngineMatching)
+Test _check_boolean_patterns method ... ok
+test_currency_pattern_detection (__main__.TestRuleEngineMatching)
+Test _detect_currency_patterns method ... ok
+test_email_pattern_detection (__main__.TestRuleEngineMatching)
+Test _detect_email_patterns method ... ok
+test_id_pattern_detection (__main__.TestRuleEngineMatching)
+Test _detect_id_patterns method ... ok
+test_phone_pattern_detection (__main__.TestRuleEngineMatching)
+Test _detect_phone_patterns method ... ok
+test_rule_config_structure (__main__.TestRuleConfiguration)
+Test that rule configuration has expected structure ... ok
+test_rule_priorities (__main__.TestRuleConfiguration)
+Test that rules have proper priority ordering ... ok
+test_complete_cleaning_pipeline (__main__.TestIntegrationScenarios)
+Test complete cleaning pipeline with multiple rules ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.044s
+
+OK
+
+============================================================
+SUMMARY:
+Tests run: 24
+Failures: 0
+Errors: 0
+Success rate: 100.0%
+============================================================

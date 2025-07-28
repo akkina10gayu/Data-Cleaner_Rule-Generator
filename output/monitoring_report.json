@@ -16,27 +16,12 @@
         "improvement_ratio": 0.038648111332007955
       },
       "by_column": {
+        "Price Per Unit": {
+          "original_nulls": 609,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
         "Transaction ID": {
-          "original_nulls": 0,
-          "cleaned_nulls": 0,
-          "null_percentage": 0.0
-        },
-        "Quantity": {
-          "original_nulls": 604,
-          "cleaned_nulls": 0,
-          "null_percentage": 0.0
-        },
-        "Payment Method": {
-          "original_nulls": 0,
-          "cleaned_nulls": 12575,
-          "null_percentage": 100.0
-        },
-        "Category": {
-          "original_nulls": 0,
-          "cleaned_nulls": 0,
-          "null_percentage": 0.0
-        },
-        "Transaction Date": {
           "original_nulls": 0,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
@@ -46,8 +31,13 @@
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Total Spent": {
-          "original_nulls": 604,
+        "Payment Method": {
+          "original_nulls": 0,
+          "cleaned_nulls": 12575,
+          "null_percentage": 100.0
+        },
+        "Item": {
+          "original_nulls": 1213,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
@@ -56,8 +46,18 @@
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Price Per Unit": {
-          "original_nulls": 609,
+        "Transaction Date": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Quantity": {
+          "original_nulls": 604,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Total Spent": {
+          "original_nulls": 604,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
@@ -66,26 +66,26 @@
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Item": {
-          "original_nulls": 1213,
+        "Category": {
+          "original_nulls": 0,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         }
       }
     },
     "consistency": {
-      "overall_score": 0.9040000000000001,
+      "overall_score": 0.884,
       "issues_found": 1,
       "issues": [
         {
           "column": "Location",
           "issue": "case_inconsistency",
-          "score": 0.59,
+          "score": 0.58,
           "patterns": {
-            "title": 59,
+            "title": 42,
             "upper": 0,
             "lower": 0,
-            "mixed": 41
+            "mixed": 58
           }
         }
       ],
@@ -239,7 +239,7 @@
       "note": "Accuracy calculation would require ground truth data in production"
     },
     "timeliness": {
-      "processing_timestamp": "2025-07-26T17:01:56.023436",
+      "processing_timestamp": "2025-07-27T21:47:19.581816",
       "data_freshness": "current",
       "note": "Timeliness assessment would require data source timestamps",
       "date_analysis": {
@@ -278,21 +278,21 @@
     "pattern_anomalies": {
       "Category": {
         "length_anomalies": {
-          "count": 20,
+          "count": 22,
           "samples": [
             "Computers And Electric Accessories",
             "Computers And Electric Accessories",
             "Computers And Electric Accessories"
           ],
-          "mean_length": 13.08,
-          "std_length": 9.441588849340985
+          "mean_length": 14.185,
+          "std_length": 9.83670549523569
         },
         "pattern_anomalies": {
           "count": 0,
           "samples": [],
           "mean_digit_ratio": 0.0
         },
-        "total_anomalies": 20,
+        "total_anomalies": 22,
         "alternative_methods": [
           "edit_distance_clustering (group similar patterns)",
           "ngram_analysis (detect common subpatterns)",
@@ -301,21 +301,21 @@
       },
       "Item": {
         "length_anomalies": {
-          "count": 17,
+          "count": 24,
           "samples": [
             "Unknown",
             "Unknown",
             "Unknown"
           ],
-          "mean_length": 10.715,
-          "std_length": 1.2859918351218254
+          "mean_length": 10.44,
+          "std_length": 1.4022838514366482
         },
         "pattern_anomalies": {
           "count": 0,
           "samples": [],
-          "mean_digit_ratio": 0.14183333333333337
+          "mean_digit_ratio": 0.13351515151515156
         },
-        "total_anomalies": 17,
+        "total_anomalies": 24,
         "alternative_methods": [
           "edit_distance_clustering (group similar patterns)",
           "ngram_analysis (detect common subpatterns)",
@@ -488,19 +488,189 @@
       ]
     }
   },
+  "comprehensive_anomalies": {
+    "all_anomalies": [
+      {
+        "type": "missing_data",
+        "field": "Item",
+        "missing_count": 1213,
+        "missing_percentage": 9.646123260437376,
+        "severity": "medium",
+        "description": "9.65% missing values affecting business analysis",
+        "business_impact": "data_completeness",
+        "affected_records": 1213
+      },
+      {
+        "type": "missing_data",
+        "field": "Price Per Unit",
+        "missing_count": 609,
+        "missing_percentage": 4.842942345924453,
+        "severity": "medium",
+        "description": "4.84% missing values in Price Per Unit with moderate impact on financial analysis",
+        "business_impact": "data_completeness",
+        "affected_records": 609
+      },
+      {
+        "type": "missing_data",
+        "field": "Quantity",
+        "missing_count": 604,
+        "missing_percentage": 4.8031809145129225,
+        "severity": "medium",
+        "description": "4.80% missing values in Quantity with moderate impact on financial analysis",
+        "business_impact": "data_completeness",
+        "affected_records": 604
+      },
+      {
+        "type": "missing_data",
+        "field": "Total Spent",
+        "missing_count": 604,
+        "missing_percentage": 4.8031809145129225,
+        "severity": "medium",
+        "description": "4.80% missing values in Total Spent with moderate impact on financial analysis",
+        "business_impact": "data_completeness",
+        "affected_records": 604
+      },
+      {
+        "type": "critical_missing_data",
+        "field": "Discount Applied",
+        "missing_count": 4199,
+        "missing_percentage": 33.39165009940358,
+        "severity": "critical",
+        "description": "33.39% missing values in business-critical discount applied field",
+        "business_impact": "data_completeness",
+        "affected_records": 4199
+      },
+      {
+        "type": "performance_bottleneck",
+        "component": "Data Profiling",
+        "execution_time": 1.227,
+        "percentage_of_total": 88.9,
+        "severity": "low",
+        "description": "Data profiling consumes 89% of pipeline execution time",
+        "business_impact": "pipeline_performance",
+        "affected_records": 0
+      }
+    ],
+    "severity_distribution": {
+      "critical": 1,
+      "high": 0,
+      "medium": 4,
+      "low": 1
+    },
+    "type_distribution": {
+      "data_completeness": 5,
+      "financial_logic": 0,
+      "data_quality": 0,
+      "pipeline_performance": 1
+    },
+    "total_affected_records": 7229,
+    "total_records": 12575,
+    "field_anomaly_matrix": {
+      "matrix": [
+        [
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          3,
+          3,
+          3,
+          4,
+          1,
+          1,
+          3
+        ]
+      ],
+      "fields": [
+        "Transaction ID",
+        "Customer ID",
+        "Category",
+        "Item",
+        "Price Per Unit",
+        "Quantity",
+        "Total Spent",
+        "Payment Method",
+        "Location",
+        "Transaction Date",
+        "Discount Applied"
+      ],
+      "categories": [
+        "Missing Data",
+        "Financial Logic",
+        "Data Quality",
+        "Business Impact"
+      ]
+    },
+    "system_impact": {
+      "data_collection": 33,
+      "data_validation": 21,
+      "business_logic": 0,
+      "analytics_engine": 23,
+      "pipeline_performance": 18
+    },
+    "summary": {
+      "total_anomalies": 6,
+      "dataset_impact_percentage": 57.487077534791254
+    }
+  },
   "quality_scores": {
     "completeness": 0.9090909090909091,
-    "consistency": 0.9040000000000001,
+    "consistency": 0.884,
     "validity": 1.0,
     "uniqueness": 1.0,
-    "overall": 0.9487272727272726,
+    "overall": 0.9437272727272727,
     "weights_used": {
       "completeness": 0.3,
       "consistency": 0.25,
       "validity": 0.25,
       "uniqueness": 0.2
     },
-    "interpretation": "Excellent"
+    "interpretation": "Excellent",
+    "radar_chart_data": {
+      "Completeness": 0.9090909090909091,
+      "Consistency": 0.884,
+      "Validity": 1.0,
+      "Uniqueness": 1.0
+    }
   },
   "comparison_stats": {
     "shape_comparison": {
@@ -614,7 +784,7 @@
       "type": "completeness_warning",
       "severity": "medium",
       "message": "Data completeness below threshold: 90.91%",
-      "timestamp": "2025-07-26T17:01:56.050116",
+      "timestamp": "2025-07-27T21:47:19.609949",
       "metric": "completeness",
       "value": 0.9090909090909091,
       "threshold": 0.95
@@ -623,7 +793,7 @@
       "type": "anomaly_detection",
       "severity": "medium",
       "message": "Detected 9 anomalies across 8 columns",
-      "timestamp": "2025-07-26T17:01:56.050116",
+      "timestamp": "2025-07-27T21:47:19.609949",
       "metric": "anomalies",
       "value": 9,
       "affected_columns": [
@@ -641,7 +811,7 @@
       "type": "high_null_values",
       "severity": "medium",
       "message": "Columns with >20% missing values: Payment Method",
-      "timestamp": "2025-07-26T17:01:56.050116",
+      "timestamp": "2025-07-27T21:47:19.609949",
       "metric": "missing_values",
       "affected_columns": [
         "Payment Method"
@@ -958,5 +1128,272 @@
       "1 fields lack specific rules. Review these for custom rule creation."
     ]
   },
-  "monitoring_timestamp": "2025-07-26T17:01:56.050116"
+  "rule_performance": {
+    "rule_metrics": {
+      "remove_exact_duplicates": {
+        "applications": 1,
+        "successes": 1,
+        "failures": 0,
+        "fields_affected": 1,
+        "rule_type": "Universal",
+        "success_rate": 100.0,
+        "average_confidence": 1.0
+      },
+      "trim_whitespace": {
+        "applications": 1,
+        "successes": 1,
+        "failures": 0,
+        "fields_affected": 1,
+        "rule_type": "Universal",
+        "success_rate": 100.0,
+        "average_confidence": 1.0
+      },
+      "handle_missing_numeric": {
+        "applications": 3,
+        "successes": 3,
+        "failures": 0,
+        "fields_affected": 3,
+        "rule_type": "Universal",
+        "success_rate": 100.0,
+        "average_confidence": 0.85
+      },
+      "normalize_currency": {
+        "applications": 2,
+        "successes": 2,
+        "failures": 0,
+        "fields_affected": 2,
+        "rule_type": "Field-Specific",
+        "success_rate": 100.0,
+        "average_confidence": 0.95
+      },
+      "standardize_names": {
+        "applications": 3,
+        "successes": 3,
+        "failures": 0,
+        "fields_affected": 3,
+        "rule_type": "Field-Specific",
+        "success_rate": 100.0,
+        "average_confidence": 0.92
+      },
+      "parse_dates": {
+        "applications": 1,
+        "successes": 1,
+        "failures": 0,
+        "fields_affected": 1,
+        "rule_type": "Field-Specific",
+        "success_rate": 100.0,
+        "average_confidence": 0.95
+      },
+      "validate_ids": {
+        "applications": 2,
+        "successes": 2,
+        "failures": 0,
+        "fields_affected": 2,
+        "rule_type": "Field-Specific",
+        "success_rate": 100.0,
+        "average_confidence": 0.9
+      },
+      "standardize_boolean": {
+        "applications": 1,
+        "successes": 1,
+        "failures": 0,
+        "fields_affected": 1,
+        "rule_type": "Field-Specific",
+        "success_rate": 100.0,
+        "average_confidence": 0.9
+      },
+      "handle_missing_categorical": {
+        "applications": 1,
+        "successes": 1,
+        "failures": 0,
+        "fields_affected": 1,
+        "rule_type": "Universal",
+        "success_rate": 100.0,
+        "average_confidence": 0.8
+      },
+      "validate_transaction_totals": {
+        "applications": 1,
+        "successes": 1,
+        "failures": 0,
+        "fields_affected": 1,
+        "rule_type": "Dataset-Specific",
+        "success_rate": 100.0,
+        "average_confidence": 0.98
+      }
+    },
+    "confidence_distribution": {
+      "excellent_0.9+": 12,
+      "good_0.7-0.9": 4,
+      "fair_0.5-0.7": 0,
+      "poor_<0.5": 0
+    },
+    "performance_timing": {
+      "data_loading": 0.005,
+      "profiling": 1.227,
+      "rule_matching": 0.053,
+      "cleaning": 0.1,
+      "monitoring": 0.088
+    },
+    "total_rules_applied": 16,
+    "overall_success_rate": 100.0,
+    "most_used_rules": [
+      [
+        "handle_missing_numeric",
+        {
+          "applications": 3,
+          "successes": 3,
+          "failures": 0,
+          "fields_affected": 3,
+          "rule_type": "Universal",
+          "success_rate": 100.0,
+          "average_confidence": 0.85
+        }
+      ],
+      [
+        "standardize_names",
+        {
+          "applications": 3,
+          "successes": 3,
+          "failures": 0,
+          "fields_affected": 3,
+          "rule_type": "Field-Specific",
+          "success_rate": 100.0,
+          "average_confidence": 0.92
+        }
+      ],
+      [
+        "normalize_currency",
+        {
+          "applications": 2,
+          "successes": 2,
+          "failures": 0,
+          "fields_affected": 2,
+          "rule_type": "Field-Specific",
+          "success_rate": 100.0,
+          "average_confidence": 0.95
+        }
+      ],
+      [
+        "validate_ids",
+        {
+          "applications": 2,
+          "successes": 2,
+          "failures": 0,
+          "fields_affected": 2,
+          "rule_type": "Field-Specific",
+          "success_rate": 100.0,
+          "average_confidence": 0.9
+        }
+      ],
+      [
+        "remove_exact_duplicates",
+        {
+          "applications": 1,
+          "successes": 1,
+          "failures": 0,
+          "fields_affected": 1,
+          "rule_type": "Universal",
+          "success_rate": 100.0,
+          "average_confidence": 1.0
+        }
+      ]
+    ],
+    "field_coverage_analysis": {
+      "total_fields": 11,
+      "fields_with_specific_rules": 10,
+      "unmatched_fields_count": 1,
+      "coverage_percentage": 90.9090909090909,
+      "missing_rule_types": {
+        "text": [
+          "Item"
+        ]
+      },
+      "recommendations": [
+        {
+          "type": "text_processing_rule",
+          "priority": "low",
+          "fields": [
+            "Item"
+          ],
+          "suggestion": "Consider text standardization rules for: Item"
+        }
+      ],
+      "summary": "1 of 11 fields lack field-specific rules",
+      "unmatched_fields": {
+        "Item": {
+          "data_type": "String",
+          "detected_field_type": "text",
+          "unique_count": 201,
+          "null_percentage": 9.646123260437376,
+          "analysis": {
+            "sample_values": [
+              "Item_10_PAT",
+              "Item_17_MILK",
+              "Item_12_BUT",
+              "Item_16_BEV",
+              "Item_6_FOOD",
+              "Item_1_FOOD",
+              "Item_16_FUR",
+              "Item_22_BUT",
+              "Item_3_BUT",
+              "Item_2_FOOD"
+            ],
+            "value_characteristics": {
+              "min_length": 10,
+              "max_length": 12,
+              "avg_length": 10.910579123393768,
+              "contains_numbers": true,
+              "contains_special_chars": true,
+              "all_uppercase": false,
+              "mixed_case": true
+            },
+            "recommendations": [
+              "Review special characters for consistency"
+            ]
+          },
+          "reason": "No field-specific rules matched"
+        }
+      }
+    },
+    "unmatched_fields_summary": {
+      "count": 1,
+      "fields": {
+        "Item": {
+          "data_type": "String",
+          "detected_field_type": "text",
+          "unique_count": 201,
+          "null_percentage": 9.646123260437376,
+          "analysis": {
+            "sample_values": [
+              "Item_10_PAT",
+              "Item_17_MILK",
+              "Item_12_BUT",
+              "Item_16_BEV",
+              "Item_6_FOOD",
+              "Item_1_FOOD",
+              "Item_16_FUR",
+              "Item_22_BUT",
+              "Item_3_BUT",
+              "Item_2_FOOD"
+            ],
+            "value_characteristics": {
+              "min_length": 10,
+              "max_length": 12,
+              "avg_length": 10.910579123393768,
+              "contains_numbers": true,
+              "contains_special_chars": true,
+              "all_uppercase": false,
+              "mixed_case": true
+            },
+            "recommendations": [
+              "Review special characters for consistency"
+            ]
+          },
+          "reason": "No field-specific rules matched"
+        }
+      },
+      "recommendations": []
+    }
+  },
+  "monitoring_timestamp": "2025-07-27T21:47:19.611960"
 }
