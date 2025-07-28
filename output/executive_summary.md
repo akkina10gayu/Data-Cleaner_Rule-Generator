@@ -1,11 +1,11 @@
 # Data Cleaning Executive Summary
 
-Generated: 2025-07-27 22:58:47
+Generated: 2025-07-27 23:07:16
 Pipeline Confidence Threshold: 0.7
 
 ## Key Results
 
-### Data Quality Score: 94.6% (Excellent)
+### Data Quality Score: 94.2% (Excellent)
 
 ### Transformation Summary
 - **Original Dataset**: 12,575 rows × 11 columns
@@ -18,7 +18,7 @@ Pipeline Confidence Threshold: 0.7
 | Metric | Score | Status |
 |--------|--------|--------|
 | Completeness | 90.9% | Excellent |
-| Consistency | 89.2% | Good |
+| Consistency | 87.8% | Good |
 | Validity | 100.0% | Excellent |
 | Uniqueness | 100.0% | Excellent |
 

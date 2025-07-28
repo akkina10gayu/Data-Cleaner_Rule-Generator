@@ -65,43 +65,43 @@
       },
       "top_values": [
         {
-          "value": "TXN_8427493",
+          "value": "TXN_6005354",
           "count": 1
         },
         {
-          "value": "TXN_4185893",
+          "value": "TXN_5383084",
           "count": 1
         },
         {
-          "value": "TXN_2330418",
+          "value": "TXN_6981287",
           "count": 1
         },
         {
-          "value": "TXN_9824009",
+          "value": "TXN_7555309",
           "count": 1
         },
         {
-          "value": "TXN_2458089",
+          "value": "TXN_6852192",
           "count": 1
         },
         {
-          "value": "TXN_3731020",
+          "value": "TXN_4702637",
           "count": 1
         },
         {
-          "value": "TXN_8016362",
+          "value": "TXN_1014375",
           "count": 1
         },
         {
-          "value": "TXN_6522433",
+          "value": "TXN_3994212",
           "count": 1
         },
         {
-          "value": "TXN_9312548",
+          "value": "TXN_5038677",
           "count": 1
         },
         {
-          "value": "TXN_6234785",
+          "value": "TXN_9810114",
           "count": 1
         }
       ],
@@ -138,44 +138,44 @@
       },
       "top_values": [
         {
-          "value": "CUST_23",
-          "count": 513
+          "value": "CUST_09",
+          "count": 519
         },
         {
           "value": "CUST_21",
           "count": 498
         },
         {
-          "value": "CUST_07",
-          "count": 491
-        },
-        {
-          "value": "CUST_03",
-          "count": 465
-        },
-        {
-          "value": "CUST_15",
-          "count": 519
-        },
-        {
-          "value": "CUST_16",
-          "count": 515
-        },
-        {
-          "value": "CUST_22",
-          "count": 501
+          "value": "CUST_17",
+          "count": 487
         },
         {
           "value": "CUST_06",
           "count": 481
         },
         {
-          "value": "CUST_11",
-          "count": 503
+          "value": "CUST_01",
+          "count": 507
         },
         {
-          "value": "CUST_09",
+          "value": "CUST_16",
+          "count": 515
+        },
+        {
+          "value": "CUST_25",
+          "count": 476
+        },
+        {
+          "value": "CUST_18",
+          "count": 507
+        },
+        {
+          "value": "CUST_15",
           "count": 519
+        },
+        {
+          "value": "CUST_11",
+          "count": 503
         }
       ],
       "detected_field_type": "id"
@@ -211,20 +211,24 @@
       },
       "top_values": [
         {
-          "value": "Electric household essentials",
-          "count": 1591
-        },
-        {
           "value": "Milk Products",
           "count": 1584
         },
         {
-          "value": "Beverages",
-          "count": 1567
+          "value": "Food",
+          "count": 1588
+        },
+        {
+          "value": "Patisserie",
+          "count": 1528
         },
         {
           "value": "Butchers",
           "count": 1568
+        },
+        {
+          "value": "Electric household essentials",
+          "count": 1591
         },
         {
           "value": "Furniture",
@@ -235,12 +239,8 @@
           "count": 1558
         },
         {
-          "value": "Food",
-          "count": 1588
-        },
-        {
-          "value": "Patisserie",
-          "count": 1528
+          "value": "Beverages",
+          "count": 1567
         }
       ],
       "detected_field_type": "category"
@@ -276,44 +276,44 @@
       },
       "top_values": [
         {
-          "value": "Item_23_CEA",
-          "count": 45
+          "value": "Item_16_BEV",
+          "count": 75
         },
         {
-          "value": "Item_8_BEV",
-          "count": 80
+          "value": "Item_2_MILK",
+          "count": 49
         },
         {
-          "value": "Item_17_PAT",
-          "count": 90
+          "value": "Item_11_PAT",
+          "count": 95
+        },
+        {
+          "value": "Item_22_PAT",
+          "count": 47
         },
         {
           "value": "Item_6_MILK",
           "count": 90
         },
         {
-          "value": "Item_24_FOOD",
-          "count": 37
+          "value": "Item_13_FOOD",
+          "count": 101
         },
         {
-          "value": "Item_5_CEA",
-          "count": 98
+          "value": "Item_19_BEV",
+          "count": 53
         },
         {
-          "value": "Item_16_FOOD",
-          "count": 18
+          "value": "Item_2_FUR",
+          "count": 95
         },
         {
-          "value": "Item_8_EHE",
-          "count": 105
+          "value": "Item_2_BUT",
+          "count": 56
         },
         {
-          "value": "Item_7_PAT",
-          "count": 58
-        },
-        {
-          "value": "Item_3_EHE",
-          "count": 5
+          "value": "Item_19_CEA",
+          "count": 106
         }
       ],
       "detected_field_type": "text"
@@ -406,12 +406,12 @@
       },
       "top_values": [
         {
-          "value": "Credit Card",
-          "count": 4121
-        },
-        {
           "value": "Cash",
           "count": 4310
+        },
+        {
+          "value": "Credit Card",
+          "count": 4121
         },
         {
           "value": "Digital Wallet",
@@ -451,12 +451,12 @@
       },
       "top_values": [
         {
-          "value": "Online",
-          "count": 6354
-        },
-        {
           "value": "In-store",
           "count": 6221
+        },
+        {
+          "value": "Online",
+          "count": 6354
         }
       ],
       "detected_field_type": "address"
@@ -492,44 +492,44 @@
       },
       "top_values": [
         {
-          "value": "2023-08-22",
-          "count": 16
-        },
-        {
-          "value": "2023-05-15",
-          "count": 9
-        },
-        {
-          "value": "2024-10-06",
-          "count": 10
-        },
-        {
-          "value": "2022-11-28",
-          "count": 15
-        },
-        {
-          "value": "2022-04-28",
+          "value": "2024-06-22",
           "count": 11
         },
         {
-          "value": "2022-12-19",
-          "count": 2
+          "value": "2022-08-26",
+          "count": 16
         },
         {
-          "value": "2023-08-28",
-          "count": 10
+          "value": "2022-01-17",
+          "count": 11
         },
         {
-          "value": "2023-03-05",
-          "count": 9
-        },
-        {
-          "value": "2024-10-27",
-          "count": 10
-        },
-        {
-          "value": "2023-06-29",
+          "value": "2023-02-26",
           "count": 15
+        },
+        {
+          "value": "2023-05-03",
+          "count": 7
+        },
+        {
+          "value": "2022-06-03",
+          "count": 10
+        },
+        {
+          "value": "2024-12-15",
+          "count": 11
+        },
+        {
+          "value": "2024-01-15",
+          "count": 5
+        },
+        {
+          "value": "2024-07-11",
+          "count": 14
+        },
+        {
+          "value": "2022-11-23",
+          "count": 8
         }
       ],
       "detected_field_type": "date"
@@ -546,12 +546,12 @@
       "true_percentage": 50.37010506208214,
       "value_distribution": [
         {
-          "value": false,
-          "count": 4157
-        },
-        {
           "value": true,
           "count": 4219
+        },
+        {
+          "value": false,
+          "count": 4157
         }
       ],
       "detected_field_type": "boolean"
@@ -619,6 +619,31 @@
     "value_distributions": {
       "Category": [
         {
+          "value": "Patisserie",
+          "count": 1528,
+          "percentage": 12.151093439363816
+        },
+        {
+          "value": "Butchers",
+          "count": 1568,
+          "percentage": 12.469184890656065
+        },
+        {
+          "value": "Food",
+          "count": 1588,
+          "percentage": 12.628230616302186
+        },
+        {
+          "value": "Furniture",
+          "count": 1591,
+          "percentage": 12.652087475149104
+        },
+        {
+          "value": "Milk Products",
+          "count": 1584,
+          "percentage": 12.596421471172961
+        },
+        {
           "value": "Beverages",
           "count": 1567,
           "percentage": 12.461232604373757
@@ -629,37 +654,17 @@
           "percentage": 12.389662027833003
         },
         {
-          "value": "Butchers",
-          "count": 1568,
-          "percentage": 12.469184890656065
-        },
-        {
-          "value": "Furniture",
-          "count": 1591,
-          "percentage": 12.652087475149104
-        },
-        {
-          "value": "Patisserie",
-          "count": 1528,
-          "percentage": 12.151093439363816
-        },
-        {
-          "value": "Food",
-          "count": 1588,
-          "percentage": 12.628230616302186
-        },
-        {
           "value": "Electric household essentials",
           "count": 1591,
           "percentage": 12.652087475149104
-        },
-        {
-          "value": "Milk Products",
-          "count": 1584,
-          "percentage": 12.596421471172961
         }
       ],
       "Payment Method": [
+        {
+          "value": "Credit Card",
+          "count": 4121,
+          "percentage": 32.7713717693837
+        },
         {
           "value": "Digital Wallet",
           "count": 4144,
@@ -669,23 +674,18 @@
           "value": "Cash",
           "count": 4310,
           "percentage": 34.27435387673956
-        },
-        {
-          "value": "Credit Card",
-          "count": 4121,
-          "percentage": 32.7713717693837
         }
       ],
       "Location": [
         {
-          "value": "Online",
-          "count": 6354,
-          "percentage": 50.52882703777336
-        },
-        {
           "value": "In-store",
           "count": 6221,
           "percentage": 49.47117296222664
+        },
+        {
+          "value": "Online",
+          "count": 6354,
+          "percentage": 50.52882703777336
         }
       ]
     }
