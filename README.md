@@ -24,6 +24,7 @@ data_cleaning_system/
 │   ├── rule_engine.py        # Rule matching and selection logic
 │   ├── data_cleaner.py       # Cleaning implementation
 │   └── monitoring.py         # Quality metrics and dashboard
+│   └── test_rules.py         # Unit test cases for the rules
 ├── utils/
 │   ├── logger.py             # Centralized logging
 │   └── helpers.py            # Utility functions
@@ -79,8 +80,8 @@ After running the pipeline, you'll find these files in your output directory:
 
 ### Core Outputs
 1. **`cleaned_data.csv`** - Your cleaned dataset ready for analysis
-2. **`applied_rules.json`** - Detailed list of all cleaning rules applied
-3. **`monitoring_dashboard.html`** - Interactive quality metrics dashboard
+2. **`monitoring_dashboard.html`** - Interactive quality metrics dashboard
+3. **`applied_rules.json`** - Detailed list of all cleaning rules applied
 
 ### Analysis Reports  
 4. **`data_profile.html`** - Comprehensive data analysis report
@@ -98,7 +99,8 @@ After running the pipeline, you'll find these files in your output directory:
 #### Universal Rules (Applied to All Data)
 - **Duplicate Removal**: Removes exact duplicate rows
 - **Whitespace Trimming**: Cleans leading/trailing spaces
-- **Missing Value Handling**: Fills nulls with appropriate strategies
+- **Missing Value Handling Categorical**: Fills nulls with appropriate strategies
+- **Missing Value Handling Numerical**: Fills nulls with appropriate strategies
 
 #### Field-Specific Rules (Applied Based on Detection)
 - **Phone Normalization**: Standardizes phone numbers to +1-XXX-XXX-XXXX format
@@ -116,10 +118,12 @@ After running the pipeline, you'll find these files in your output directory:
 
 ### Confidence Scoring
 
-Rules are applied based on confidence thresholds:
-- **High Confidence (0.9+)**: Auto-applied (data type fixes, whitespace trimming)
-- **Medium Confidence (0.7-0.9)**: Applied with threshold check (normalization rules)
-- **Low Confidence (<0.7)**: Flagged for review (aggressive transformations)
+  Rules are applied based on confidence thresholds (default: 0.7):
+
+  - **Perfect Confidence (1.0)**: Core data operations (duplicate removal, whitespace trimming)
+  - **High Confidence (0.9-0.99)**: Reliable transformations (phone normalization, currency formatting, validation)
+  - **Medium Confidence (0.8-0.89)**: Moderate reliability (address standardization, missing value handling)
+  - **Low Confidence (<0.8)**: Skipped unless threshold is lowered (aggressive transformations)
 
 ## 📈 Monitoring & Quality Metrics
 
@@ -229,29 +233,6 @@ Fields that don't match specific rules are:
 - **Large Datasets**: Memory-efficient processing with configurable sampling
 - **Invalid Data**: Comprehensive validation and error reporting
 
-## 📊 Example Output
-
-### Before Cleaning
-```
-Dataset: 10,000 rows × 11 columns
-Missing Values: 1,247 (11.3%)
-Duplicates: 45 rows
-Quality Score: 67%
-```
-
-### After Cleaning
-```
-Dataset: 9,955 rows × 11 columns  
-Missing Values: 23 (0.2%)
-Duplicates: 0 rows
-Quality Score: 94%
-
-Operations Applied:
-✓ Removed 45 duplicate rows
-✓ Normalized 856 phone numbers
-✓ Standardized 1,203 names to title case
-✓ Fixed 34 transaction total mismatches
-✓ Filled 1,224 missing values
 ```
 
 ## 🤝 Contributing
