@@ -1,5 +1,5 @@
 Data Cleaner Unit Test Results
-Generated: 2025-07-27 21:50:53
+Generated: 2025-07-27 22:59:11
 ============================================================
 
 DETAILED TEST OUTPUT:
@@ -53,7 +53,7 @@ test_complete_cleaning_pipeline (__main__.TestIntegrationScenarios)
 Test complete cleaning pipeline with multiple rules ... ok
 
 ----------------------------------------------------------------------
-Ran 24 tests in 0.044s
+Ran 24 tests in 0.034s
 
 OK
 

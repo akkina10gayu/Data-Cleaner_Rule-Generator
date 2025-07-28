@@ -1,9 +1,8 @@
-# Data-Cleaner_Rule-Generator
-# 🧹 Data Cleaning Pipeline - Automated Data Quality System
+# Data Cleaning Pipeline - Automated Data Quality System
 
 A comprehensive, production-ready data cleaning system that automatically learns and applies cleaning rules with intelligent field detection, comprehensive monitoring, and detailed reporting.
 
-## 🎯 Key Features
+## Key Features
 
 - **Intelligent Field Detection**: Automatically identifies field types (phone, email, currency, etc.) based on column names and data patterns
 - **Rule-Based Cleaning**: Comprehensive set of predefined rules for common data quality issues
@@ -12,29 +11,36 @@ A comprehensive, production-ready data cleaning system that automatically learns
 - **Production Ready**: Proper logging, error handling, and scalability considerations
 - **Extensible Architecture**: Easy to add new rules and customize for specific datasets
 
-## 🏗️ Project Structure
+## Requirements
+
+- **Python 3.8+**
+- **Memory**: 2GB RAM minimum (4GB+ recommended for large datasets)
+- **Storage**: 100MB for dependencies, additional space for output files
+- **OS**: Windows, macOS, or Linux
+
+## Project Structure
 
 ```
-data_cleaning_system/
+Data-Cleaner_Rule-Generator/
 ├── main.py                    # Main orchestrator script
 ├── config/
-│   └── rules.json            # Comprehensive rule definitions
+│   └── rules.json            # Rule definitions and configuration
 ├── src/
 │   ├── data_profiler.py      # Dataset analysis and profiling
 │   ├── rule_engine.py        # Rule matching and selection logic
 │   ├── data_cleaner.py       # Cleaning implementation
 │   └── monitoring.py         # Quality metrics and dashboard
-│   └── test_rules.py         # Unit test cases for the rules
 ├── utils/
 │   ├── logger.py             # Centralized logging
-│   └── helpers.py            # Utility functions
+│   ├── helpers.py            # Utility functions
+│   └── test_rules.py         # Unit test cases for the rules
 ├── output/                   # Generated files directory
 ├── logs/                     # Log files
 ├── requirements.txt
 └── README.md
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -46,8 +52,8 @@ pip install -r requirements.txt
 ```
 
 3. **Prepare your data:**
-   - Place your CSV file in the project directory
-   - The system works with any CSV file, designed for retail sales data
+   - Place your CSV file in the project directory or note its path
+   - The system works with any CSV file
 
 ### Basic Usage
 
@@ -74,58 +80,62 @@ python main.py your_dataset.csv --confidence 0.8 --output results/ --log-level D
 - `--log-level, -l`: Logging level (DEBUG, INFO, WARNING, ERROR)
 - `--quiet, -q`: Suppress progress output
 
-## 📊 What Gets Generated
+### Expected Results
+
+**Processing Time**: 30 seconds to 2 minutes for typical datasets (10K-100K rows)
+**Success Indicators**: 
+- Overall quality score of 85%+ 
+- Interactive dashboard opens correctly
+- No critical errors in logs
+
+## Output Files
 
 After running the pipeline, you'll find these files in your output directory:
 
-### Core Outputs
+### Essential Files
 1. **`cleaned_data.csv`** - Your cleaned dataset ready for analysis
-2. **`monitoring_dashboard.html`** - Interactive quality metrics dashboard
-3. **`applied_rules.json`** - Detailed list of all cleaning rules applied
+2. **`monitoring_dashboard.html`** - Interactive quality metrics dashboard (open this first!)
+3. **`executive_summary.md`** - High-level summary for stakeholders
 
-### Analysis Reports  
+### Detailed Reports  
 4. **`data_profile.html`** - Comprehensive data analysis report
-5. **`executive_summary.md`** - High-level summary for stakeholders
+5. **`applied_rules.json`** - Detailed list of all cleaning rules applied
 6. **`monitoring_report.json`** - Detailed quality metrics and anomalies
-
-### Technical Reports
 7. **`rule_analysis.json`** - Rule matching and coverage analysis
 8. **`cleaning_report.json`** - Detailed cleaning operation log
 
-## 🎛️ Rule System
+## Rule System
 
 ### Rule Categories
 
-#### Universal Rules (Applied to All Data)
-- **Duplicate Removal**: Removes exact duplicate rows
-- **Whitespace Trimming**: Cleans leading/trailing spaces
-- **Missing Value Handling Categorical**: Fills nulls with appropriate strategies
-- **Missing Value Handling Numerical**: Fills nulls with appropriate strategies
+**Universal Rules** (Applied to All Data):
+- Duplicate removal, whitespace trimming, missing value handling
 
-#### Field-Specific Rules (Applied Based on Detection)
-- **Phone Normalization**: Standardizes phone numbers to +1-XXX-XXX-XXXX format
-- **Name Standardization**: Applies title case and cleans spacing
-- **Currency Normalization**: Ensures 2 decimal places, removes symbols
-- **Boolean Standardization**: Converts various representations (true/false, yes/no, 1/0)
-- **Date Parsing**: Standardizes date formats
-- **Address Standardization**: Normalizes addresses and abbreviations
-- **Quantity Validation**: Ensures positive integers for quantities
-- **Outlier Detection**: Flags statistical outliers using IQR or Z-score methods
+**Field-Specific Rules** (Applied Based on Detection):
+- Phone/email normalization, currency formatting, date parsing, address standardization, outlier detection
 
-#### Dataset-Specific Rules (Business Logic)
-- **Transaction Validation**: Verifies Total = Price × Quantity
-- **Range Validation**: Ensures values are within expected ranges
+**Dataset-Specific Rules** (Business Logic):
+- Transaction validation, range validation, business rule enforcement
 
 ### Confidence Scoring
 
-  Rules are applied based on confidence thresholds (default: 0.7):
+Rules are applied based on confidence thresholds (default: 0.7):
 
-  - **Perfect Confidence (1.0)**: Core data operations (duplicate removal, whitespace trimming)
-  - **High Confidence (0.9-0.99)**: Reliable transformations (phone normalization, currency formatting, validation)
-  - **Medium Confidence (0.8-0.89)**: Moderate reliability (address standardization, missing value handling)
-  - **Low Confidence (<0.8)**: Skipped unless threshold is lowered (aggressive transformations)
+- **Perfect Confidence (1.0)**: Core data operations (duplicate removal, whitespace trimming)
+- **High Confidence (0.9-0.99)**: Reliable transformations (phone normalization, currency formatting, validation)
+- **Medium Confidence (0.8-0.89)**: Moderate reliability (address standardization, missing value handling)
+- **Low Confidence (<0.8)**: Skipped unless threshold is lowered (aggressive transformations)
 
-## 📈 Monitoring & Quality Metrics
+**Threshold Control:**
+```bash
+# Conservative cleaning (only high-confidence rules)
+python main.py data.csv --confidence 0.9
+
+# Aggressive cleaning (include lower-confidence rules)  
+python main.py data.csv --confidence 0.6
+```
+
+## Monitoring & Quality Metrics
 
 ### Quality Dimensions Tracked
 1. **Completeness**: Percentage of non-null values
@@ -146,7 +156,7 @@ Automatically generates alerts for:
 - Columns with excessive missing values
 - Processing errors or failures
 
-## 🔧 Configuration
+## Configuration
 
 ### Customizing Rules
 
@@ -184,7 +194,7 @@ Fields that don't match specific rules are:
 - Analyzed for characteristics (length, patterns, value types)
 - Given recommendations for potential custom rules
 
-## 🏭 Production Deployment
+## Production Deployment
 
 ### Architecture Considerations
 
@@ -215,7 +225,7 @@ Fields that don't match specific rules are:
 3. **Streaming**: Adapt for real-time data stream processing
 4. **Microservice**: Deploy as containerized service
 
-## 🎯 Design Principles
+## Design Principles
 
 ### About the Approach
 
@@ -235,7 +245,51 @@ Fields that don't match specific rules are:
 
 ```
 
-## 🤝 Contributing
+## Testing
+
+### Running Unit Tests
+
+```bash
+# Run all unit tests
+python -m pytest utils/test_rules.py -v
+
+# Run specific test categories
+python -m pytest utils/test_rules.py::TestUniversalRules -v
+python -m pytest utils/test_rules.py::TestFieldSpecificRules -v
+python -m pytest utils/test_rules.py::TestDatasetSpecificRules -v
+```
+
+### Test Coverage
+
+The test suite covers:
+- Universal rules (duplicate removal, whitespace trimming, missing value handling)
+- Field-specific rules (phone normalization, currency formatting, boolean standardization)
+- Dataset-specific rules (transaction validation, discount validation)
+- Edge cases and error conditions
+
+## Troubleshooting
+
+### Common Issues
+
+**"Module not found" errors:**
+- Ensure all dependencies are installed: `pip install -r requirements.txt`
+- Check Python version (3.8+ required)
+
+**"Permission denied" errors:**
+- Ensure write permissions for output directory
+- Check file locks on input CSV files
+
+**Low quality scores:**
+- Review confidence threshold (try lowering with `--confidence 0.6`)
+- Check unmatched fields in rule analysis report
+- Verify data format compatibility
+
+**Memory issues with large datasets:**
+- Use sampling for rule learning: modify confidence thresholds
+- Process data in chunks (feature planned for future releases)
+- Increase system memory or use cloud processing
+
+## Contributing
 
 This system is designed to be extensible. To add new cleaning rules:
 
@@ -244,7 +298,7 @@ This system is designed to be extensible. To add new cleaning rules:
 3. Implement cleaning logic in `data_cleaner.py`
 4. Add tests for your new functionality
 
-## 📚 Technical Details
+## Technical Details
 
 ### Dependencies
 - **Polars**: High-performance DataFrame operations

@@ -1495,6 +1495,38 @@ class DataQualityMonitor:
                 )
                 figures['anomalies'] = fig_anomalies.to_html(include_plotlyjs=False)
             
+            # 3.1. Statistical Outliers by Field
+            statistical_outliers = anomalies.get('statistical_outliers', {})
+            if statistical_outliers:
+                outlier_fields = []
+                outlier_counts = []
+                outlier_percentages = []
+                
+                for field, outlier_data in statistical_outliers.items():
+                    if isinstance(outlier_data, dict) and outlier_data.get('count', 0) > 0:
+                        outlier_fields.append(field)
+                        outlier_counts.append(outlier_data.get('count', 0))
+                        outlier_percentages.append(outlier_data.get('percentage', 0))
+                
+                if outlier_fields:
+                    fig_outliers = go.Figure()
+                    fig_outliers.add_trace(go.Bar(
+                        x=outlier_fields,
+                        y=outlier_counts,
+                        marker_color='#ff6b6b',
+                        text=[f'{count} ({pct:.1f}%)' for count, pct in zip(outlier_counts, outlier_percentages)],
+                        textposition='auto',
+                        name='Outlier Count'
+                    ))
+                    fig_outliers.update_layout(
+                        title='Statistical Outliers by Field (IQR Method)',
+                        xaxis_title='Field',
+                        yaxis_title='Outlier Count',
+                        xaxis_tickangle=-45,
+                        showlegend=False
+                    )
+                    figures['statistical_outliers'] = fig_outliers.to_html(include_plotlyjs=False)
+            
             # 4. Null Values Improvement
             null_comparison = comparison_stats.get('null_comparison', {})
             columns_with_nulls = [col for col, info in null_comparison.items() 
@@ -2483,6 +2515,20 @@ class DataQualityMonitor:
                     </div>"""
         
         html_template += f"""
+                    
+                    <!-- Statistical Outliers Analysis -->
+                    <div class="card">
+                        <h4 style="margin-bottom: 15px;">📈 Statistical Outliers by Field</h4>
+                        <div style="background: #fff3cd; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                            <p style="margin: 0; color: #856404; font-size: 0.9em;">
+                                <strong>IQR Method:</strong> Values beyond Q1-1.5×IQR or Q3+1.5×IQR are flagged as outliers. 
+                                This identifies unusually high/low values that may indicate data entry errors or exceptional cases requiring review.
+                            </p>
+                        </div>
+                        <div class="chart-container">
+                            {figures.get('statistical_outliers', '<p>No statistical outliers detected in numeric fields</p>')}
+                        </div>
+                    </div>
                     
                     <!-- Field-Level Anomaly Heatmap -->
                     <div class="card">

@@ -16,18 +16,13 @@
         "improvement_ratio": 0.038648111332007955
       },
       "by_column": {
-        "Price Per Unit": {
-          "original_nulls": 609,
-          "cleaned_nulls": 0,
-          "null_percentage": 0.0
-        },
-        "Transaction ID": {
+        "Location": {
           "original_nulls": 0,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Discount Applied": {
-          "original_nulls": 4199,
+        "Quantity": {
+          "original_nulls": 604,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
@@ -46,23 +41,28 @@
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Transaction Date": {
-          "original_nulls": 0,
-          "cleaned_nulls": 0,
-          "null_percentage": 0.0
-        },
-        "Quantity": {
-          "original_nulls": 604,
-          "cleaned_nulls": 0,
-          "null_percentage": 0.0
-        },
         "Total Spent": {
           "original_nulls": 604,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Location": {
+        "Price Per Unit": {
+          "original_nulls": 609,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Transaction ID": {
           "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Transaction Date": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Discount Applied": {
+          "original_nulls": 4199,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
@@ -74,18 +74,18 @@
       }
     },
     "consistency": {
-      "overall_score": 0.884,
+      "overall_score": 0.892,
       "issues_found": 1,
       "issues": [
         {
           "column": "Location",
           "issue": "case_inconsistency",
-          "score": 0.58,
+          "score": 0.56,
           "patterns": {
-            "title": 42,
+            "title": 44,
             "upper": 0,
             "lower": 0,
-            "mixed": 58
+            "mixed": 56
           }
         }
       ],
@@ -239,7 +239,7 @@
       "note": "Accuracy calculation would require ground truth data in production"
     },
     "timeliness": {
-      "processing_timestamp": "2025-07-27T21:47:19.581816",
+      "processing_timestamp": "2025-07-27T22:58:46.765841",
       "data_freshness": "current",
       "note": "Timeliness assessment would require data source timestamps",
       "date_analysis": {
@@ -276,46 +276,23 @@
       }
     },
     "pattern_anomalies": {
-      "Category": {
-        "length_anomalies": {
-          "count": 22,
-          "samples": [
-            "Computers And Electric Accessories",
-            "Computers And Electric Accessories",
-            "Computers And Electric Accessories"
-          ],
-          "mean_length": 14.185,
-          "std_length": 9.83670549523569
-        },
-        "pattern_anomalies": {
-          "count": 0,
-          "samples": [],
-          "mean_digit_ratio": 0.0
-        },
-        "total_anomalies": 22,
-        "alternative_methods": [
-          "edit_distance_clustering (group similar patterns)",
-          "ngram_analysis (detect common subpatterns)",
-          "regex_pattern_mining (discover format rules)"
-        ]
-      },
       "Item": {
         "length_anomalies": {
-          "count": 24,
+          "count": 21,
           "samples": [
             "Unknown",
             "Unknown",
             "Unknown"
           ],
-          "mean_length": 10.44,
-          "std_length": 1.4022838514366482
+          "mean_length": 10.51,
+          "std_length": 1.3416035181826262
         },
         "pattern_anomalies": {
           "count": 0,
           "samples": [],
-          "mean_digit_ratio": 0.13351515151515156
+          "mean_digit_ratio": 0.1356666666666667
         },
-        "total_anomalies": 24,
+        "total_anomalies": 21,
         "alternative_methods": [
           "edit_distance_clustering (group similar patterns)",
           "ngram_analysis (detect common subpatterns)",
@@ -434,7 +411,7 @@
       }
     },
     "summary": {
-      "total_anomalies": 9,
+      "total_anomalies": 8,
       "affected_columns": [
         {
           "column": "Customer ID",
@@ -445,7 +422,6 @@
         {
           "column": "Category",
           "anomaly_types": [
-            "pattern_anomalies",
             "value_anomalies"
           ]
         },
@@ -654,10 +630,10 @@
   },
   "quality_scores": {
     "completeness": 0.9090909090909091,
-    "consistency": 0.884,
+    "consistency": 0.892,
     "validity": 1.0,
     "uniqueness": 1.0,
-    "overall": 0.9437272727272727,
+    "overall": 0.9457272727272727,
     "weights_used": {
       "completeness": 0.3,
       "consistency": 0.25,
@@ -667,7 +643,7 @@
     "interpretation": "Excellent",
     "radar_chart_data": {
       "Completeness": 0.9090909090909091,
-      "Consistency": 0.884,
+      "Consistency": 0.892,
       "Validity": 1.0,
       "Uniqueness": 1.0
     }
@@ -784,7 +760,7 @@
       "type": "completeness_warning",
       "severity": "medium",
       "message": "Data completeness below threshold: 90.91%",
-      "timestamp": "2025-07-27T21:47:19.609949",
+      "timestamp": "2025-07-27T22:58:46.803843",
       "metric": "completeness",
       "value": 0.9090909090909091,
       "threshold": 0.95
@@ -792,10 +768,10 @@
     {
       "type": "anomaly_detection",
       "severity": "medium",
-      "message": "Detected 9 anomalies across 8 columns",
-      "timestamp": "2025-07-27T21:47:19.609949",
+      "message": "Detected 8 anomalies across 8 columns",
+      "timestamp": "2025-07-27T22:58:46.803843",
       "metric": "anomalies",
-      "value": 9,
+      "value": 8,
       "affected_columns": [
         "Customer ID",
         "Category",
@@ -811,7 +787,7 @@
       "type": "high_null_values",
       "severity": "medium",
       "message": "Columns with >20% missing values: Payment Method",
-      "timestamp": "2025-07-27T21:47:19.609949",
+      "timestamp": "2025-07-27T22:58:46.803843",
       "metric": "missing_values",
       "affected_columns": [
         "Payment Method"
@@ -1395,5 +1371,5 @@
       "recommendations": []
     }
   },
-  "monitoring_timestamp": "2025-07-27T21:47:19.611960"
+  "monitoring_timestamp": "2025-07-27T22:58:46.807164"
 }
