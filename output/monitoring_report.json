@@ -8,25 +8,30 @@
       },
       "cleaned": {
         "total_cells": 138325,
-        "null_cells": 12575,
-        "completeness_ratio": 0.9090909090909091
+        "null_cells": 0,
+        "completeness_ratio": 1.0
       },
       "improvement": {
-        "nulls_fixed": -5346,
-        "improvement_ratio": 0.038648111332007955
+        "nulls_fixed": 7229,
+        "improvement_ratio": -0.05226097957708296
       },
       "by_column": {
-        "Price Per Unit": {
-          "original_nulls": 609,
-          "cleaned_nulls": 0,
-          "null_percentage": 0.0
-        },
-        "Category": {
+        "Payment Method": {
           "original_nulls": 0,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Total Spent": {
+        "Transaction Date": {
+          "original_nulls": 0,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Discount Applied": {
+          "original_nulls": 4199,
+          "cleaned_nulls": 0,
+          "null_percentage": 0.0
+        },
+        "Quantity": {
           "original_nulls": 604,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
@@ -36,18 +41,13 @@
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Quantity": {
+        "Total Spent": {
           "original_nulls": 604,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Payment Method": {
-          "original_nulls": 0,
-          "cleaned_nulls": 12575,
-          "null_percentage": 100.0
-        },
-        "Discount Applied": {
-          "original_nulls": 4199,
+        "Item": {
+          "original_nulls": 1213,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
@@ -61,12 +61,12 @@
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Item": {
-          "original_nulls": 1213,
+        "Price Per Unit": {
+          "original_nulls": 609,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
         },
-        "Transaction Date": {
+        "Category": {
           "original_nulls": 0,
           "cleaned_nulls": 0,
           "null_percentage": 0.0
@@ -74,7 +74,7 @@
       }
     },
     "consistency": {
-      "overall_score": 0.8779999999999999,
+      "overall_score": 0.9,
       "issues_found": 1,
       "issues": [
         {
@@ -89,7 +89,7 @@
           }
         }
       ],
-      "columns_analyzed": 5
+      "columns_analyzed": 6
     },
     "validity": {
       "overall_score": 1.0,
@@ -186,7 +186,18 @@
         },
         "Payment Method": {
           "column": "Payment Method",
-          "checks_performed": []
+          "checks_performed": [
+            {
+              "check": "excessive_length",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            },
+            {
+              "check": "unusual_patterns",
+              "invalid_count": 0,
+              "validity_ratio": 1.0
+            }
+          ]
         },
         "Location": {
           "column": "Location",
@@ -239,7 +250,7 @@
       "note": "Accuracy calculation would require ground truth data in production"
     },
     "timeliness": {
-      "processing_timestamp": "2025-07-27T23:07:16.221424",
+      "processing_timestamp": "2025-07-29T12:05:27.560382",
       "data_freshness": "current",
       "note": "Timeliness assessment would require data source timestamps",
       "date_analysis": {
@@ -278,21 +289,21 @@
     "pattern_anomalies": {
       "Item": {
         "length_anomalies": {
-          "count": 18,
+          "count": 22,
           "samples": [
             "Unknown",
             "Unknown",
             "Unknown"
           ],
-          "mean_length": 10.56,
-          "std_length": 1.2674383614203888
+          "mean_length": 10.49,
+          "std_length": 1.3564291356351794
         },
         "pattern_anomalies": {
           "count": 0,
           "samples": [],
-          "mean_digit_ratio": 0.13806060606060608
+          "mean_digit_ratio": 0.13390909090909095
         },
-        "total_anomalies": 18,
+        "total_anomalies": 22,
         "alternative_methods": [
           "edit_distance_clustering (group similar patterns)",
           "ngram_analysis (detect common subpatterns)",
@@ -368,26 +379,14 @@
       "Payment Method": {
         "anomalies": [
           {
-            "type": "high_null_percentage",
-            "value": 100.0,
-            "threshold": 50,
-            "severity": "high"
-          },
-          {
             "type": "low_uniqueness",
-            "value": 7.952286282306163e-05,
-            "unique_count": 1,
+            "value": 0.0002385685884691849,
+            "unique_count": 3,
             "total_count": 12575,
-            "severity": "medium"
-          },
-          {
-            "type": "single_value_dominance",
-            "value": 1.0,
-            "dominant_value": null,
             "severity": "medium"
           }
         ],
-        "count": 3,
+        "count": 1,
         "alternative_methods": [
           "frequency_based_detection (identify rare value patterns)",
           "domain_specific_validation (business rule validation)"
@@ -629,11 +628,11 @@
     }
   },
   "quality_scores": {
-    "completeness": 0.9090909090909091,
-    "consistency": 0.8779999999999999,
+    "completeness": 1.0,
+    "consistency": 0.9,
     "validity": 1.0,
     "uniqueness": 1.0,
-    "overall": 0.9422272727272727,
+    "overall": 0.9750000000000001,
     "weights_used": {
       "completeness": 0.3,
       "consistency": 0.25,
@@ -642,8 +641,8 @@
     },
     "interpretation": "Excellent",
     "radar_chart_data": {
-      "Completeness": 0.9090909090909091,
-      "Consistency": 0.8779999999999999,
+      "Completeness": 1.0,
+      "Consistency": 0.9,
       "Validity": 1.0,
       "Uniqueness": 1.0
     }
@@ -662,17 +661,12 @@
       "columns_changed": 0
     },
     "data_type_changes": {
-      "columns_with_changes": 3,
+      "columns_with_changes": 2,
       "changes": {
         "Quantity": {
           "from": "Float64",
           "to": "Int64",
           "change_type": "float_to_integer"
-        },
-        "Payment Method": {
-          "from": "String",
-          "to": "Float64",
-          "change_type": "other"
         },
         "Transaction Date": {
           "from": "String",
@@ -683,8 +677,8 @@
     },
     "memory_usage": {
       "original_mb": 1.1220464706420898,
-      "cleaned_mb": 1.0375862121582031,
-      "reduction_mb": 0.08446025848388672
+      "cleaned_mb": 1.0551481246948242,
+      "reduction_mb": 0.06689834594726562
     },
     "null_comparison": {
       "Transaction ID": {
@@ -731,8 +725,8 @@
       },
       "Payment Method": {
         "original_nulls": 0,
-        "cleaned_nulls": 12575,
-        "nulls_fixed": -12575,
+        "cleaned_nulls": 0,
+        "nulls_fixed": 0,
         "improvement_ratio": 0
       },
       "Location": {
@@ -757,19 +751,10 @@
   },
   "alerts": [
     {
-      "type": "completeness_warning",
-      "severity": "medium",
-      "message": "Data completeness below threshold: 90.91%",
-      "timestamp": "2025-07-27T23:07:16.235417",
-      "metric": "completeness",
-      "value": 0.9090909090909091,
-      "threshold": 0.95
-    },
-    {
       "type": "anomaly_detection",
       "severity": "medium",
       "message": "Detected 8 anomalies across 8 columns",
-      "timestamp": "2025-07-27T23:07:16.235417",
+      "timestamp": "2025-07-29T12:05:27.593411",
       "metric": "anomalies",
       "value": 8,
       "affected_columns": [
@@ -782,21 +767,11 @@
         "Payment Method",
         "Location"
       ]
-    },
-    {
-      "type": "high_null_values",
-      "severity": "medium",
-      "message": "Columns with >20% missing values: Payment Method",
-      "timestamp": "2025-07-27T23:07:16.235417",
-      "metric": "missing_values",
-      "affected_columns": [
-        "Payment Method"
-      ]
     }
   ],
   "cleaning_summary": {
     "operations_performed": 23,
-    "errors_encountered": 2,
+    "errors_encountered": 1,
     "total_records_affected": 121744,
     "operations_by_type": {
       "remove_duplicates": {
@@ -812,16 +787,16 @@
         "total_records_affected": 0
       },
       "standardize_categories": {
-        "count": 1,
-        "total_records_affected": 12575
+        "count": 2,
+        "total_records_affected": 25150
       },
       "fill_missing": {
         "count": 5,
         "total_records_affected": 7229
       },
       "normalize_currency": {
-        "count": 3,
-        "total_records_affected": 37725
+        "count": 2,
+        "total_records_affected": 25150
       },
       "outlier_detection": {
         "count": 3,
@@ -857,21 +832,16 @@
         12575,
         11
       ],
-      "final_nulls": 12575,
+      "final_nulls": 0,
       "final_duplicates": 0,
-      "final_memory_mb": 1.0375862121582031,
+      "final_memory_mb": 1.0551481246948242,
       "improvements": {
-        "nulls_fixed": -5346,
+        "nulls_fixed": 7229,
         "duplicates_removed": 0,
         "rows_removed": 0
       }
     },
     "error_summary": [
-      {
-        "rule_id": "standardize_categories",
-        "field": "Payment Method",
-        "error": "Standardization failed: invalid series dtype: expected `String`, got `f64`"
-      },
       {
         "rule_id": "handle_missing_numeric",
         "field": "Discount Applied",
@@ -979,11 +949,10 @@
         "confidence": 0.85
       },
       "normalize_currency": {
-        "count": 3,
+        "count": 2,
         "fields": [
           "Price Per Unit",
-          "Total Spent",
-          "Payment Method"
+          "Total Spent"
         ],
         "rule_type": "normalization",
         "confidence": 0.95
@@ -1055,7 +1024,7 @@
       "Price Per Unit": 6,
       "Quantity": 6,
       "Total Spent": 6,
-      "Payment Method": 6,
+      "Payment Method": 5,
       "Location": 5,
       "Transaction Date": 6,
       "Discount Applied": 6
@@ -1371,5 +1340,5 @@
       "recommendations": []
     }
   },
-  "monitoring_timestamp": "2025-07-27T23:07:16.237425"
+  "monitoring_timestamp": "2025-07-29T12:05:27.595411"
 }

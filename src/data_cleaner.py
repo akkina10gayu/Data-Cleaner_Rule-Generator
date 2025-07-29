@@ -420,6 +420,8 @@ class DataCleaner:
         try:
             if rule_id == 'standardize_names':
                 df = self._standardize_names(df, field_name, rule)
+            elif rule_id == 'normalize_email':
+                df = self._normalize_email(df, field_name, rule)
             elif rule_id == 'standardize_addresses':
                 df = self._standardize_addresses(df, field_name, rule)
             elif rule_id == 'standardize_categories':
@@ -519,6 +521,24 @@ class DataCleaner:
             field=field_name,
             operation='standardize_address',
             result="Applied address standardization and abbreviations",
+            confidence=rule.get('confidence', 1.0),
+            records_affected=len(df)
+        )
+        
+        return df
+    
+    def _normalize_email(self, df: pl.DataFrame, field_name: str, rule: Dict) -> pl.DataFrame:
+        """Normalize email addresses to lowercase standard format."""
+        
+        df = df.with_columns(
+            pl.col(field_name).str.to_lowercase().str.strip().alias(field_name)
+        )
+        
+        self._log_operation(
+            rule_id=rule.get('rule_id'),
+            field=field_name,
+            operation='normalize_email',
+            result="Normalized email addresses to lowercase",
             confidence=rule.get('confidence', 1.0),
             records_affected=len(df)
         )

@@ -1,5 +1,5 @@
 Data Cleaner Unit Test Results
-Generated: 2025-07-27 22:59:11
+Generated: 2025-07-29 12:06:38
 ============================================================
 
 DETAILED TEST OUTPUT:
@@ -17,6 +17,8 @@ test_detect_numeric_outliers_iqr (__main__.TestFieldSpecificRules)
 Test detect_numeric_outliers rule with IQR method ... ok
 test_normalize_currency (__main__.TestFieldSpecificRules)
 Test normalize_currency rule ... ok
+test_normalize_email (__main__.TestFieldSpecificRules)
+Test normalize_email rule ... ok
 test_normalize_phone (__main__.TestFieldSpecificRules)
 Test normalize_phone rule ... ok
 test_normalize_quantities (__main__.TestFieldSpecificRules)
@@ -53,13 +55,13 @@ test_complete_cleaning_pipeline (__main__.TestIntegrationScenarios)
 Test complete cleaning pipeline with multiple rules ... ok
 
 ----------------------------------------------------------------------
-Ran 24 tests in 0.034s
+Ran 25 tests in 0.037s
 
 OK
 
 ============================================================
 SUMMARY:
-Tests run: 24
+Tests run: 25
 Failures: 0
 Errors: 0
 Success rate: 100.0%
