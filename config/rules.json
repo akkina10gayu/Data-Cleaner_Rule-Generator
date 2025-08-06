@@ -49,6 +49,16 @@
       "priority": 5
     },
     {
+      "rule_id": "normalize_email",
+      "rule_type": "normalization",
+      "field_patterns": ["email", "mail", "contact_email", "user_email"],
+      "data_types": ["string", "object"],
+      "description": "Normalize email addresses to lowercase standard format",
+      "confidence": 0.92,
+      "enabled": true,
+      "priority": 6
+    },
+    {
       "rule_id": "standardize_names",
       "rule_type": "standardization",
       "field_patterns": ["name", "first_name", "last_name", "customer_name"],
@@ -57,7 +67,7 @@
       "confidence": 0.92,
       "transformation": "title_case",
       "enabled": true,
-      "priority": 6
+      "priority": 7
     },
     {
       "rule_id": "standardize_addresses",
@@ -76,7 +86,7 @@
         }
       },
       "enabled": true,
-      "priority": 7
+      "priority": 8
     },
     {
       "rule_id": "parse_dates",
@@ -87,19 +97,19 @@
       "confidence": 0.95,
       "target_format": "%Y-%m-%d",
       "enabled": true,
-      "priority": 8
+      "priority": 9
     },
     {
       "rule_id": "normalize_currency",
       "rule_type": "normalization",
-      "field_patterns": ["price", "amount", "cost", "total", "spent", "payment"],
+      "field_patterns": ["price", "amount", "cost", "total", "spent"],
       "data_types": ["float", "int", "string", "object"],
       "description": "Normalize currency values to standard decimal format",
       "confidence": 0.95,
       "decimal_places": 2,
       "remove_symbols": true,
       "enabled": true,
-      "priority": 9
+      "priority": 10
     },
     {
       "rule_id": "standardize_categories",
@@ -110,7 +120,7 @@
       "confidence": 0.85,
       "similarity_threshold": 0.8,
       "enabled": true,
-      "priority": 10
+      "priority": 11
     },
     {
       "rule_id": "validate_ids",
@@ -121,7 +131,7 @@
       "confidence": 0.90,
       "checks": ["not_null", "unique", "format_consistency"],
       "enabled": true,
-      "priority": 11
+      "priority": 12
     },
     {
       "rule_id": "normalize_quantities",
@@ -132,7 +142,7 @@
       "confidence": 0.95,
       "transformation": "positive_integer",
       "enabled": true,
-      "priority": 12
+      "priority": 13
     },
     {
       "rule_id": "standardize_boolean",
@@ -146,7 +156,7 @@
         "false": false, "False": false, "FALSE": false, "0": false, "no": false, "No": false
       },
       "enabled": true,
-      "priority": 13
+      "priority": 14
     },
     {
       "rule_id": "detect_numeric_outliers",
@@ -159,7 +169,7 @@
       "threshold": 1.5,
       "action": "flag",
       "enabled": true,
-      "priority": 14
+      "priority": 15
     }
   ],
   "dataset_specific_rules": [
@@ -172,7 +182,7 @@
       "tolerance": 0.01,
       "required_fields": ["Total Spent", "Price Per Unit", "Quantity"],
       "enabled": true,
-      "priority": 15
+      "priority": 16
     },
     {
       "rule_id": "validate_discount_range",
@@ -182,7 +192,7 @@
       "confidence": 0.95,
       "data_type_check": true,
       "enabled": true,
-      "priority": 16
+      "priority": 17
     }
   ],
   "anomaly_detection_config": {

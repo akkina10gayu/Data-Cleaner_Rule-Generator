@@ -244,6 +244,28 @@ class TestFieldSpecificRules(unittest.TestCase):
         expected = ['Electronics', 'Food', 'Home & Garden', 'Books']
         self.assertEqual(categories, expected)
     
+    def test_normalize_email(self):
+        """Test normalize_email rule"""
+        df = pl.DataFrame({
+            'customer_email': ['USER@EXAMPLE.COM', 'Test@Gmail.COM', '  admin@site.org  ', 'SUPPORT@COMPANY.NET']
+        })
+        
+        rule = {
+            'rule_id': 'normalize_email',
+            'rule_type': 'normalization', 
+            'confidence': 0.92
+        }
+        
+        result = self.cleaner._normalize_email(df, 'customer_email', rule)
+        emails = result['customer_email'].to_list()
+        
+        # Should normalize to lowercase and trim whitespace
+        expected = ['user@example.com', 'test@gmail.com', 'admin@site.org', 'support@company.net']
+        self.assertEqual(emails, expected)
+        
+        # Verify no nulls introduced
+        self.assertEqual(result['customer_email'].null_count(), 0)
+    
     def test_validate_ids(self):
         """Test validate_ids rule"""
         df = pl.DataFrame({

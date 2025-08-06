@@ -58,7 +58,7 @@
           "format_consistency"
         ],
         "enabled": true,
-        "priority": 11
+        "priority": 12
       }
     ],
     "Customer ID": [
@@ -119,7 +119,7 @@
           "format_consistency"
         ],
         "enabled": true,
-        "priority": 11
+        "priority": 12
       }
     ],
     "Category": [
@@ -174,7 +174,7 @@
         "confidence": 0.85,
         "similarity_threshold": 0.8,
         "enabled": true,
-        "priority": 10
+        "priority": 11
       }
     ],
     "Item": [
@@ -256,8 +256,7 @@
           "amount",
           "cost",
           "total",
-          "spent",
-          "payment"
+          "spent"
         ],
         "data_types": [
           "float",
@@ -270,7 +269,7 @@
         "decimal_places": 2,
         "remove_symbols": true,
         "enabled": true,
-        "priority": 9
+        "priority": 10
       },
       {
         "rule_id": "detect_numeric_outliers",
@@ -292,7 +291,7 @@
         "threshold": 1.5,
         "action": "flag",
         "enabled": true,
-        "priority": 14
+        "priority": 15
       }
     ],
     "Quantity": [
@@ -349,7 +348,7 @@
         "confidence": 0.95,
         "transformation": "positive_integer",
         "enabled": true,
-        "priority": 12
+        "priority": 13
       },
       {
         "rule_id": "detect_numeric_outliers",
@@ -371,7 +370,7 @@
         "threshold": 1.5,
         "action": "flag",
         "enabled": true,
-        "priority": 14
+        "priority": 15
       }
     ],
     "Total Spent": [
@@ -417,8 +416,7 @@
           "amount",
           "cost",
           "total",
-          "spent",
-          "payment"
+          "spent"
         ],
         "data_types": [
           "float",
@@ -431,7 +429,7 @@
         "decimal_places": 2,
         "remove_symbols": true,
         "enabled": true,
-        "priority": 9
+        "priority": 10
       },
       {
         "rule_id": "detect_numeric_outliers",
@@ -453,7 +451,7 @@
         "threshold": 1.5,
         "action": "flag",
         "enabled": true,
-        "priority": 14
+        "priority": 15
       }
     ],
     "Payment Method": [
@@ -492,30 +490,6 @@
         "priority": 4
       },
       {
-        "rule_id": "normalize_currency",
-        "rule_type": "normalization",
-        "field_patterns": [
-          "price",
-          "amount",
-          "cost",
-          "total",
-          "spent",
-          "payment"
-        ],
-        "data_types": [
-          "float",
-          "int",
-          "string",
-          "object"
-        ],
-        "description": "Normalize currency values to standard decimal format",
-        "confidence": 0.95,
-        "decimal_places": 2,
-        "remove_symbols": true,
-        "enabled": true,
-        "priority": 9
-      },
-      {
         "rule_id": "standardize_categories",
         "rule_type": "standardization",
         "field_patterns": [
@@ -532,7 +506,7 @@
         "confidence": 0.85,
         "similarity_threshold": 0.8,
         "enabled": true,
-        "priority": 10
+        "priority": 11
       }
     ],
     "Location": [
@@ -594,7 +568,7 @@
           }
         },
         "enabled": true,
-        "priority": 7
+        "priority": 8
       }
     ],
     "Transaction Date": [
@@ -671,7 +645,7 @@
         "confidence": 0.95,
         "target_format": "%Y-%m-%d",
         "enabled": true,
-        "priority": 8
+        "priority": 9
       }
     ],
     "Discount Applied": [
@@ -742,7 +716,7 @@
           "No": false
         },
         "enabled": true,
-        "priority": 13
+        "priority": 14
       },
       {
         "rule_id": "validate_discount_range",
@@ -752,7 +726,7 @@
         "confidence": 0.95,
         "data_type_check": true,
         "enabled": true,
-        "priority": 16
+        "priority": 17
       }
     ],
     "_dataset_rules": [
@@ -769,7 +743,7 @@
           "Quantity"
         ],
         "enabled": true,
-        "priority": 15
+        "priority": 16
       }
     ]
   },
@@ -908,11 +882,10 @@
         "confidence": 0.85
       },
       "normalize_currency": {
-        "count": 3,
+        "count": 2,
         "fields": [
           "Price Per Unit",
-          "Total Spent",
-          "Payment Method"
+          "Total Spent"
         ],
         "rule_type": "normalization",
         "confidence": 0.95
@@ -984,7 +957,7 @@
       "Price Per Unit": 6,
       "Quantity": 6,
       "Total Spent": 6,
-      "Payment Method": 6,
+      "Payment Method": 5,
       "Location": 5,
       "Transaction Date": 6,
       "Discount Applied": 6
@@ -1035,7 +1008,7 @@
   },
   "configuration_used": {
     "total_universal_rules": 4,
-    "total_field_specific_rules": 10,
+    "total_field_specific_rules": 11,
     "total_dataset_specific_rules": 2
   }
 }

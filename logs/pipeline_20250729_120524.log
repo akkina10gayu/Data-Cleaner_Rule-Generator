@@ -1,0 +1,85 @@
+2025-07-29 12:05:24 - utils.logger - INFO - logger.py:72 - Logging configured - Level: INFO
+2025-07-29 12:05:24 - utils.logger - INFO - logger.py:74 - Log file: logs/pipeline_20250729_120524.log
+2025-07-29 12:05:24 - src.rule_engine - INFO - rule_engine.py:39 - Loaded rules configuration from config/rules.json
+2025-07-29 12:05:24 - __main__ - INFO - main.py:51 - Pipeline initialized with confidence threshold: 0.7
+2025-07-29 12:05:24 - __main__ - INFO - main.py:66 - STARTING DATA CLEANING PIPELINE
+2025-07-29 12:05:24 - __main__ - INFO - main.py:67 - --------------------------------------------------
+2025-07-29 12:05:24 - __main__ - INFO - main.py:68 - Input file: data/retail_store_sales.csv
+2025-07-29 12:05:24 - __main__ - INFO - main.py:69 - Output directory: output
+2025-07-29 12:05:24 - __main__ - INFO - main.py:70 - Confidence threshold: 0.7
+2025-07-29 12:05:24 - utils.helpers - INFO - helpers.py:33 - Created output directories under output
+2025-07-29 12:05:24 - __main__ - INFO - main.py:77 - STEP 1: Loading and validating input data
+2025-07-29 12:05:24 - utils.helpers - INFO - helpers.py:414 - Successfully loaded 12,575 rows and 11 columns
+2025-07-29 12:05:24 - utils.helpers - INFO - helpers.py:415 - Memory usage: 1.12 MB
+2025-07-29 12:05:24 - __main__ - INFO - main.py:86 - STEP 2: Profiling dataset characteristics
+2025-07-29 12:05:24 - src.data_profiler - INFO - data_profiler.py:43 - Starting dataset profiling for shape: (12575, 11)
+2025-07-29 12:05:24 - src.data_profiler - INFO - data_profiler.py:63 - Dataset profiling completed successfully
+2025-07-29 12:05:25 - src.data_profiler - INFO - data_profiler.py:498 - Profile report saved to output/data_profile.html
+2025-07-29 12:05:25 - src.data_profiler - INFO - data_profiler.py:792 - Profile results saved to output/data_profile.json
+2025-07-29 12:05:25 - __main__ - INFO - main.py:100 - Profile completed in 1.29 seconds
+2025-07-29 12:05:25 - __main__ - INFO - main.py:101 - Analyzed 11 columns
+2025-07-29 12:05:25 - __main__ - INFO - main.py:104 - STEP 3: Matching cleaning rules to fields
+2025-07-29 12:05:25 - src.rule_engine - INFO - rule_engine.py:56 - Starting rule matching analysis...
+2025-07-29 12:05:25 - src.rule_engine - WARNING - rule_engine.py:323 - Field 'Item' did not match any field-specific rules
+2025-07-29 12:05:25 - src.rule_engine - INFO - rule_engine.py:421 - Applied dataset rule: validate_transaction_totals
+2025-07-29 12:05:25 - src.rule_engine - INFO - rule_engine.py:428 - Applied dataset rule: validate_discount_range to field Discount Applied
+2025-07-29 12:05:25 - src.rule_engine - INFO - rule_engine.py:82 - Rule matching completed. Matched rules for 12 fields.
+2025-07-29 12:05:25 - src.rule_engine - INFO - rule_engine.py:607 - Rule analysis saved to output/rule_analysis.json
+2025-07-29 12:05:25 - __main__ - INFO - main.py:121 - Rule matching completed in 0.02 seconds
+2025-07-29 12:05:25 - __main__ - INFO - main.py:122 - Matched 60 rules across 11 fields
+2025-07-29 12:05:25 - __main__ - INFO - main.py:123 - Field coverage: 90.9%
+2025-07-29 12:05:25 - __main__ - WARNING - main.py:128 - 1 fields did not match specific rules
+2025-07-29 12:05:25 - __main__ - WARNING - main.py:130 - Unmatched field: Item
+2025-07-29 12:05:25 - __main__ - INFO - main.py:133 - STEP 4: Applying cleaning transformations
+2025-07-29 12:05:25 - src.data_cleaner - INFO - data_cleaner.py:43 - Starting data cleaning with confidence threshold: 0.7
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:25 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:27 - src.data_cleaner - WARNING - data_cleaner.py:434 - Unknown standardization rule: trim_whitespace
+2025-07-29 12:05:27 - src.data_cleaner - ERROR - data_cleaner.py:784 - Cleaning error - Rule: handle_missing_numeric, Field: Discount Applied, Error: Missing value handling failed: could not determine supertype of: [bool, dyn int]
+2025-07-29 12:05:27 - src.data_cleaner - INFO - data_cleaner.py:64 - Data cleaning completed. Applied 23 operations.
+2025-07-29 12:05:27 - src.data_cleaner - INFO - data_cleaner.py:841 - Cleaning report saved to output/cleaning_report.json
+2025-07-29 12:05:27 - __main__ - INFO - main.py:158 - Cleaning completed in 1.83 seconds
+2025-07-29 12:05:27 - __main__ - INFO - main.py:159 - Performed 23 operations
+2025-07-29 12:05:27 - __main__ - INFO - main.py:160 - Affected 121744 records
+2025-07-29 12:05:27 - __main__ - WARNING - main.py:163 - 1 errors encountered
+2025-07-29 12:05:27 - __main__ - INFO - main.py:166 - STEP 5: Generating quality metrics and monitoring
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:50 - Starting comprehensive monitoring analysis...
+2025-07-29 12:05:27 - src.monitoring - WARNING - monitoring.py:1106 - No detailed cleaning log found, generating sample data for visualization
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1387 - Generated 16 sample log entries for visualization
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1113 - Processing 16 log entries
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:87 - Monitoring completed. Generated 1 alerts.
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:2699 - Monitoring report saved to output/monitoring_report.json
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1612 - Rule performance data available: True
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1613 - Rule metrics count: 10
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1620 - Creating rule performance chart with 10 rules
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1670 - Confidence distribution data: {'excellent_0.9+': 12, 'good_0.7-0.9': 4, 'fair_0.5-0.7': 0, 'poor_<0.5': 0}
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1681 - Creating confidence chart with values: [12, 4, 0]
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1720 - Performance timing data: {'data_loading': 0.005, 'profiling': 1.227, 'rule_matching': 0.053, 'cleaning': 0.1, 'monitoring': 0.088}
+2025-07-29 12:05:27 - src.monitoring - INFO - monitoring.py:1732 - Creating timeline chart with values: [0.005, 1.227, 0.053, 0.1, 0.088]
+2025-07-29 12:05:28 - src.monitoring - INFO - monitoring.py:1428 - Monitoring dashboard saved to output/monitoring_dashboard.html
+2025-07-29 12:05:28 - __main__ - INFO - main.py:195 - Monitoring completed in 0.55 seconds
+2025-07-29 12:05:28 - __main__ - INFO - main.py:196 - Overall quality score: 97.5%
+2025-07-29 12:05:28 - __main__ - INFO - main.py:197 - Generated 1 alerts
+2025-07-29 12:05:28 - __main__ - INFO - main.py:198 - Detected 8 anomalies
+2025-07-29 12:05:28 - __main__ - INFO - main.py:201 - STEP 6: Generating final reports
+2025-07-29 12:05:28 - utils.helpers - INFO - helpers.py:98 - Saved 23 applied rules to output/applied_rules.json
+2025-07-29 12:05:28 - utils.helpers - INFO - helpers.py:524 - Executive summary saved to output/executive_summary.md
+2025-07-29 12:05:28 - __main__ - INFO - main.py:219 - PIPELINE EXECUTION COMPLETED SUCCESSFULLY
+2025-07-29 12:05:28 - __main__ - INFO - main.py:220 - --------------------------------------------------
+2025-07-29 12:05:28 - __main__ - INFO - main.py:221 - Total execution time: 3.74 seconds
+2025-07-29 12:05:28 - __main__ - INFO - main.py:222 - Data shape: (12575, 11) → (12575, 11)
+2025-07-29 12:05:28 - __main__ - INFO - main.py:223 - Quality improvement: 97.5%
+2025-07-29 12:05:28 - __main__ - WARNING - main.py:228 - ALERTS GENERATED:
+2025-07-29 12:05:28 - __main__ - WARNING - main.py:230 - Generated 1 alerts:
+
+MEDIUM (1):
+  - Detected 8 anomalies across 8 columns
+2025-07-29 12:05:28 - __main__ - INFO - main.py:232 - Output files saved to: output/

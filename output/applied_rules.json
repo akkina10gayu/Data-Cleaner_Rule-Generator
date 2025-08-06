@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-07-27T23:07:16.461345",
+  "generated_at": "2025-07-29T12:05:28.094988",
   "total_rules_applied": 23,
   "confidence_threshold_used": 0.7,
   "rules": [
@@ -112,9 +112,9 @@
       "method": "iqr"
     },
     {
-      "rule_id": "normalize_currency",
-      "description": "Normalized currency to 2 decimal places",
-      "confidence": 0.95,
+      "rule_id": "standardize_categories",
+      "description": "Applied basic category standardization",
+      "confidence": 0.85,
       "applied_to": "Payment Method",
       "records_affected": 12575
     },
